@@ -190,17 +190,22 @@ export function Hero() {
                 className="relative w-full"
               >
                 <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
-                  <Image
-                    src="/images/laptop-tech.jpg"
-                    alt="Laptop s holografickými dátovými vizualizáciami"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                    onError={() => setLaptopImageError(true)}
-                  />
-                  {laptopImageError && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 z-10">
+                  {!laptopImageError ? (
+                    <>
+                      <Image
+                        src="/images/laptop-tech.jpg"
+                        alt="Laptop s holografickými dátovými vizualizáciami"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                        unoptimized
+                        onError={() => setLaptopImageError(true)}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10">
                       <div className="text-center p-4">
                         <motion.div 
                           className="w-16 h-16 mx-auto mb-2 rounded-lg bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm"
@@ -221,7 +226,6 @@ export function Hero() {
                       </div>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             </TextReveal>
@@ -240,17 +244,22 @@ export function Hero() {
                 className="relative w-full hidden md:block"
               >
                 <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
-                  <Image
-                    src="/images/planet-tech.jpg"
-                    alt="Planéta s modrými prstencami a svetielkami"
-                    fill
-                    className="object-cover"
-                    sizes="50vw"
-                    priority
-                    onError={() => setPlanetImageError(true)}
-                  />
-                  {planetImageError && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 z-10">
+                  {!planetImageError ? (
+                    <>
+                      <Image
+                        src="/images/planet-tech.jpg"
+                        alt="Planéta s modrými prstencami a svetielkami"
+                        fill
+                        className="object-cover"
+                        sizes="50vw"
+                        priority
+                        unoptimized
+                        onError={() => setPlanetImageError(true)}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10">
                       <div className="text-center p-4">
                         <motion.div 
                           className="w-24 h-24 mx-auto mb-2 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm relative"
@@ -273,7 +282,6 @@ export function Hero() {
                       </div>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             </TextReveal>
