@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useRef, useEffect, useState } from "react"
+import { useRef } from "react"
 import { FloatingElements } from "@/components/floating-elements"
 import { TextReveal } from "@/components/text-reveal"
 
@@ -34,7 +34,7 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20 sm:pt-40 sm:pb-32"
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 sm:py-32"
                 style={{ 
                   opacity,
                   willChange: "opacity, transform",
