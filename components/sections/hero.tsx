@@ -58,11 +58,12 @@ export function Hero() {
               priority
               onError={() => setLaptopImageError(true)}
               style={{
-                opacity: 0.4,
+                opacity: 0.5,
+                zIndex: 1,
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/60 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/50 to-background/30 z-2" />
         </div>
         {/* Planet Image - Desktop right, hidden on mobile */}
         <div className="absolute inset-0 hidden md:block md:w-1/2 md:right-0">
@@ -76,11 +77,12 @@ export function Hero() {
               priority
               onError={() => setPlanetImageError(true)}
               style={{
-                opacity: 0.4,
+                opacity: 0.5,
+                zIndex: 1,
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/60 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/50 to-background/30 z-2" />
         </div>
       </motion.div>
 
