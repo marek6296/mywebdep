@@ -53,13 +53,16 @@ export function Hero() {
               src="/images/laptop-tech.jpg"
               alt="Laptop s holografickými dátovými vizualizáciami"
               fill
-              className="object-cover opacity-15 md:opacity-20"
+              className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
               onError={() => setLaptopImageError(true)}
+              style={{
+                opacity: 0.4,
+              }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/60 to-background/40" />
         </div>
         {/* Planet Image - Desktop right, hidden on mobile */}
         <div className="absolute inset-0 hidden md:block md:w-1/2 md:right-0">
@@ -68,13 +71,16 @@ export function Hero() {
               src="/images/planet-tech.jpg"
               alt="Planéta s modrými prstencami a svetielkami"
               fill
-              className="object-cover opacity-15 md:opacity-20"
+              className="object-cover"
               sizes="50vw"
               priority
               onError={() => setPlanetImageError(true)}
+              style={{
+                opacity: 0.4,
+              }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/60 to-background/40" />
         </div>
       </motion.div>
 
