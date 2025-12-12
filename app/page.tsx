@@ -2,7 +2,6 @@ import { Hero } from "@/components/sections/hero"
 import { TrustBar } from "@/components/sections/trust-bar"
 import { FeaturedProducts } from "@/components/sections/featured-projects"
 import { Services } from "@/components/sections/services"
-import { ServicesDetailed } from "@/components/sections/services-detailed"
 import { ProcessGSAP } from "@/components/sections/process-gsap"
 import { Testimonials } from "@/components/sections/testimonials"
 import { CTABanner } from "@/components/sections/cta-banner"
@@ -14,7 +13,6 @@ export default function Home() {
       <TrustBar />
       <FeaturedProducts />
       <Services />
-      <ServicesDetailed />
       <ProcessGSAP />
       <Testimonials />
       <CTABanner />
