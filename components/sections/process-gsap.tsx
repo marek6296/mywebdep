@@ -138,14 +138,14 @@ export function ProcessGSAP() {
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-4xl sm:text-5xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0"
             style={{ opacity: mounted ? undefined : 1 }}
           >
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Ako pracujeme
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Jednoduchý proces od nápadu po spustenie
           </p>
         </div>
@@ -177,17 +177,17 @@ export function ProcessGSAP() {
                     index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
                   } mb-6 md:mb-0`}
                 >
-                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                    <h3 className="text-2xl font-bold mb-2 text-foreground">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-foreground break-words">{step.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground break-words">{step.description}</p>
                   </div>
                 </div>
 
-                <div className="md:w-1/2 flex justify-center relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-xl font-bold shadow-lg border-2 border-primary/20">
-                    {step.number}
-                  </div>
-                </div>
+                        <div className="md:w-1/2 flex justify-center relative z-10">
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-lg sm:text-xl font-bold shadow-lg border-2 border-primary/20">
+                            {step.number}
+                          </div>
+                        </div>
 
                 <div
                   className={`md:w-1/2 ${

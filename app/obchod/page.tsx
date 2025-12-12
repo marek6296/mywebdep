@@ -84,24 +84,24 @@ export default function ObchodPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Obchod
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Prehľadajte našu ponuku webových riešení a vyberte si to, čo najlepšie vyhovuje vašim potrebám.
           </p>
         </motion.div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-4 sm:px-0">
           {categories.map((category) => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="capitalize"
+              className="capitalize text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2"
             >
               {category}
             </Button>
@@ -133,15 +133,15 @@ export default function ObchodPage() {
                   </motion.div>
                 </div>
                 <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="group-hover:text-primary transition-colors">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0 mb-2">
+                    <CardTitle className="group-hover:text-primary transition-colors text-base sm:text-lg break-words flex-1">
                       {product.title}
                     </CardTitle>
-                    <Badge className="bg-primary text-primary-foreground ml-2">
+                    <Badge className="bg-primary text-primary-foreground sm:ml-2 w-fit">
                       {product.price}
                     </Badge>
                   </div>
-                  <CardDescription>{product.description}</CardDescription>
+                  <CardDescription className="text-sm sm:text-base break-words">{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button asChild variant="ghost" className="w-full group">

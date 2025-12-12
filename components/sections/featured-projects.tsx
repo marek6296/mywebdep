@@ -80,12 +80,12 @@ export function FeaturedProducts() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Vybrané produkty
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Pozrite si našu ponuku webových riešení. Každý produkt je navrhnutý pre maximálnu funkčnosť a výkon.
           </p>
         </motion.div>
@@ -126,20 +126,21 @@ export function FeaturedProducts() {
                   />
                 </div>
                 <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0 mb-2">
                     <motion.div
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
+                      className="flex-1"
                     >
-                      <CardTitle className="group-hover:text-primary transition-colors">
+                      <CardTitle className="group-hover:text-primary transition-colors text-base sm:text-lg break-words">
                         {product.title}
                       </CardTitle>
                     </motion.div>
-                    <Badge className="bg-primary text-primary-foreground ml-2">
+                    <Badge className="bg-primary text-primary-foreground sm:ml-2 w-fit">
                       {product.price}
                     </Badge>
                   </div>
-                  <CardDescription>{product.description}</CardDescription>
+                  <CardDescription className="text-sm sm:text-base break-words">{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <motion.div

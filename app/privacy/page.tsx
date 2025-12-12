@@ -12,18 +12,18 @@ export default function PrivacyPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Ochrana súkromia
             </span>
           </h1>
-          <p className="text-muted-foreground mb-8">Posledná aktualizácia: {new Date().toLocaleDateString("sk-SK")}</p>
+          <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 px-4 sm:px-0">Posledná aktualizácia: {new Date().toLocaleDateString("sk-SK")}</p>
 
           <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
             <CardContent className="pt-6 prose prose-invert max-w-none">
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold mb-4">1. Úvod</h2>
-                <p className="text-muted-foreground mb-4">
+              <section className="mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 break-words">1. Úvod</h2>
+                <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 break-words">
                   Táto zásada ochrany súkromia popisuje, ako spracúvame a chrátime vaše osobné údaje
                   v súlade s nariadením GDPR (Všeobecné nariadenie o ochrane údajov).
                 </p>

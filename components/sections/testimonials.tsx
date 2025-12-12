@@ -40,12 +40,12 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Čo hovoria klienti
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Spokojnosť klientov je moja priorita. Pozrite si, čo o spolupráci hovoria.
           </p>
         </motion.div>
@@ -71,9 +71,9 @@ export function Testimonials() {
                     repeatDelay: 1,
                   }}
                 />
-                <CardContent className="pt-6 relative z-10">
+                <CardContent className="pt-4 sm:pt-6 relative z-10 px-4 sm:px-6">
                   <motion.div
-                    className="flex mb-4"
+                    className="flex mb-3 sm:mb-4"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                     transition={{ delay: index * 0.1 + 0.2 }}
@@ -90,12 +90,12 @@ export function Testimonials() {
                           delay: index * 0.1 + 0.3 + i * 0.1,
                         }}
                       >
-                        <Star className="h-5 w-5 fill-primary text-primary" />
+                        <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-primary text-primary" />
                       </motion.div>
                     ))}
                   </motion.div>
                   <motion.p
-                    className="text-muted-foreground mb-6 italic"
+                    className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 italic break-words"
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ delay: index * 0.1 + 0.4 }}
@@ -107,8 +107,8 @@ export function Testimonials() {
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                     transition={{ delay: index * 0.1 + 0.5 }}
                   >
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="font-semibold text-sm sm:text-base break-words">{testimonial.name}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground break-words">{testimonial.role}</p>
                   </motion.div>
                 </CardContent>
               </Card>

@@ -72,13 +72,13 @@ export function TrustBar() {
                       repeatDelay: 1,
                     }}
                   />
-                  <Icon className="h-8 w-8 text-primary relative z-10" />
+                  <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary relative z-10" />
                 </motion.div>
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground mb-1">{feature.description}</p>
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 break-words">{feature.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-1 break-words">{feature.description}</p>
                 {feature.value && (
                   <motion.div
-                    className="text-2xl font-bold text-primary"
+                    className="text-xl sm:text-2xl font-bold text-primary"
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : { scale: 0 }}
                     transition={{ 

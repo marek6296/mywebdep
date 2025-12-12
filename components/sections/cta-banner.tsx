@@ -80,7 +80,7 @@ export function CTABanner() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 break-words"
             >
               <motion.span
                 className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent inline-block"
@@ -103,7 +103,7 @@ export function CTABanner() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0"
             >
               Kontaktujte ma ešte dnes a získajte bezplatnú konzultáciu o vašom projekte.
             </motion.p>
@@ -114,7 +114,7 @@ export function CTABanner() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button asChild size="lg" className="text-lg px-8 py-6 group relative overflow-hidden">
+              <Button asChild size="lg" className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto group relative overflow-hidden">
                 <Link href="/contact">
                   <motion.span
                     className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"
@@ -127,9 +127,9 @@ export function CTABanner() {
                       repeatDelay: 1,
                     }}
                   />
-                  <span className="relative z-10 flex items-center">
+                  <span className="relative z-10 flex items-center justify-center break-words">
                     Získať bezplatnú konzultáciu
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </span>
                 </Link>
               </Button>

@@ -70,12 +70,12 @@ export default function ServicesPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Služby a ceny
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Transparentné ceny a balíčky šité na mieru vašim potrebám.
           </p>
         </motion.div>
@@ -104,16 +104,16 @@ export default function ServicesPage() {
                   </div>
                 )}
                 <CardHeader>
-                  <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold mb-2">{pkg.price}</div>
-                  <CardDescription>{pkg.description}</CardDescription>
+                  <CardTitle className="text-xl sm:text-2xl mb-2 break-words">{pkg.name}</CardTitle>
+                  <div className="text-2xl sm:text-3xl font-bold mb-2 break-words">{pkg.price}</div>
+                  <CardDescription className="text-sm sm:text-base break-words">{pkg.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                     {pkg.features.map((feature) => (
                       <li key={feature} className="flex items-start">
-                        <Check className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
+                        <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm break-words">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -133,8 +133,8 @@ export default function ServicesPage() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Doplnkové služby</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-4 sm:px-0 break-words">Doplnkové služby</h2>
+          <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 px-4 sm:px-0">
             Rozšírte svoj projekt o ďalšie funkcie a služby.
           </p>
         </motion.div>
@@ -148,10 +148,10 @@ export default function ServicesPage() {
               transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
             >
               <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">{addon.name}</span>
-                    <span className="text-sm text-muted-foreground">{addon.price}</span>
+                <CardContent className="pt-4 sm:pt-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+                    <span className="font-medium text-sm sm:text-base break-words">{addon.name}</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground break-words">{addon.price}</span>
                   </div>
                 </CardContent>
               </Card>

@@ -52,12 +52,12 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               O mne
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Poznajte mňa a moju cestu vo webovom vývoji.
           </p>
         </motion.div>
@@ -72,17 +72,17 @@ export default function AboutPage() {
           <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
             <CardContent className="pt-6">
               <div className="prose prose-invert max-w-none">
-                <p className="text-lg text-muted-foreground mb-4">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-3 sm:mb-4 break-words">
                   Vitajte! Som webový vývojár a dizajnér so zameraním na vytváranie moderných,
                   rýchlych a konverzných webových riešení. S viac ako 5 ročnou praxou som pomohol
                   desiatkam klientov dosiahnuť ich online ciele.
                 </p>
-                <p className="text-lg text-muted-foreground mb-4">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-3 sm:mb-4 break-words">
                   Špecializujem sa na Next.js, TypeScript a moderné webové technológie.
                   Verím v to, že každý web by mal byť nielen krásny, ale aj funkčný, rýchly
                   a prispievať k úspechu vašeho podnikania.
                 </p>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground break-words">
                   Môj prístup je založený na úzkej spolupráci s klientmi, transparentnosti
                   a dodávaní riešení, ktoré skutočne fungujú. Každý projekt je pre mňa
                   príležitosťou vytvoriť niečo výnimočné.
@@ -99,7 +99,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Moje hodnoty</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 px-4 sm:px-0 break-words">Moje hodnoty</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
               const Icon = value.icon
@@ -132,7 +132,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Zručnosti</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 px-4 sm:px-0 break-words">Zručnosti</h2>
           <div className="max-w-2xl mx-auto space-y-4">
             {skills.map((skill, index) => (
               <motion.div
@@ -142,8 +142,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
               >
                 <div className="flex justify-between mb-2">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                  <span className="font-medium text-sm sm:text-base break-words">{skill.name}</span>
+                  <span className="text-xs sm:text-sm text-muted-foreground">{skill.level}%</span>
                 </div>
                 <div className="h-2 bg-secondary rounded-full overflow-hidden">
                   <motion.div
@@ -164,7 +164,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Nástroje a technológie</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 px-4 sm:px-0 break-words">Nástroje a technológie</h2>
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {tools.map((tool, index) => (
               <motion.div

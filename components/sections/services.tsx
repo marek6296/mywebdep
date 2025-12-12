@@ -47,12 +47,12 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
+            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Služby
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Komplexné webové riešenia šité na mieru vašim potrebám a cieľom.
           </p>
         </motion.div>
@@ -103,11 +103,11 @@ export function Services() {
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <CardTitle className="group-hover:text-primary transition-colors">
+                      <CardTitle className="group-hover:text-primary transition-colors text-base sm:text-lg break-words">
                         {service.title}
                       </CardTitle>
                     </motion.div>
-                    <CardDescription>{service.description}</CardDescription>
+                    <CardDescription className="text-sm sm:text-base break-words">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="relative z-10">
                     <ul className="space-y-2">
@@ -117,14 +117,14 @@ export function Services() {
                           initial={{ opacity: 0, x: -10 }}
                           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                           transition={{ delay: index * 0.1 + featureIndex * 0.05 }}
-                          className="flex items-center text-sm text-muted-foreground group/item"
+                          className="flex items-center text-xs sm:text-sm text-muted-foreground group/item"
                         >
                           <motion.span
-                            className="w-1.5 h-1.5 rounded-full bg-primary mr-2"
+                            className="w-1.5 h-1.5 rounded-full bg-primary mr-2 flex-shrink-0"
                             whileHover={{ scale: 1.5, rotate: 180 }}
                             transition={{ duration: 0.3 }}
                           />
-                          <span className="group-hover/item:text-foreground transition-colors">
+                          <span className="group-hover/item:text-foreground transition-colors break-words">
                             {feature}
                           </span>
                         </motion.li>
