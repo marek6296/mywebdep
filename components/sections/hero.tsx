@@ -7,12 +7,9 @@ import Link from "next/link"
 import { useRef, useEffect, useState } from "react"
 import { FloatingElements } from "@/components/floating-elements"
 import { TextReveal } from "@/components/text-reveal"
-import Image from "next/image"
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [laptopImageError, setLaptopImageError] = useState(false)
-  const [planetImageError, setPlanetImageError] = useState(false)
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -28,63 +25,12 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-animated noise-overlay opacity-50" />
+      <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
       
       {/* Floating Elements */}
       <FloatingElements />
-      
-      {/* Background Images with Parallax */}
-      <motion.div
-        className="absolute inset-0 overflow-hidden z-0"
-        style={{
-          y,
-          willChange: "transform",
-          transform: "translate3d(0, 0, 0)",
-          backfaceVisibility: "hidden",
-          WebkitTransform: "translate3d(0, 0, 0)",
-        }}
-      >
-        {/* Laptop Image - Mobile full width, Desktop left */}
-        <div className="absolute inset-0 md:w-1/2 md:left-0">
-          {!laptopImageError && (
-            <Image
-              src="/images/laptop-tech.jpg"
-              alt="Laptop s holografickými dátovými vizualizáciami"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-              onError={() => setLaptopImageError(true)}
-              style={{
-                opacity: 0.5,
-                zIndex: 1,
-              }}
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30 z-2" />
-        </div>
-        {/* Planet Image - Desktop right, hidden on mobile */}
-        <div className="absolute inset-0 hidden md:block md:w-1/2 md:right-0">
-          {!planetImageError && (
-            <Image
-              src="/images/planet-tech.jpg"
-              alt="Planéta s modrými prstencami a svetielkami"
-              fill
-              className="object-cover"
-              sizes="50vw"
-              priority
-              onError={() => setPlanetImageError(true)}
-              style={{
-                opacity: 0.5,
-                zIndex: 1,
-              }}
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30 z-2" />
-        </div>
-      </motion.div>
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
