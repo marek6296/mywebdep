@@ -1,36 +1,212 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WebDep - Profesionálne portfólio web
 
-## Getting Started
+Moderný, rýchly a profesionálny portfólio web pre webového freelancera. Postavený na Next.js 14, TypeScript, TailwindCSS a Supabase.
 
-First, run the development server:
+## 🚀 Funkcie
+
+- ✨ Moderný dizajn s tmavým režimom
+- 🎨 Plynulé animácie s Framer Motion
+- 📱 Plne responzívny dizajn
+- 🎯 SEO optimalizované
+- 📝 Multi-step kontaktný formulár
+- 💾 Ukladanie leadov do Supabase
+- 📧 Email notifikácie cez Resend
+- 🛡️ Ochrana proti spamu (honeypot, rate limiting)
+- ♿ Prístupnosť (a11y)
+- 🎬 Video hero s fallback
+
+## 📋 Požiadavky
+
+- Node.js 18+ 
+- npm alebo yarn
+- Supabase účet
+- Resend účet (pre email notifikácie)
+
+## 🛠️ Inštalácia
+
+1. **Klonujte repozitár alebo stiahnite súbory**
+
+```bash
+cd webdep.sk
+```
+
+2. **Inštalujte závislosti**
+
+```bash
+npm install
+```
+
+3. **Nastavte environment premenné**
+
+Skopírujte `.env.example` do `.env.local` a vyplňte hodnoty:
+
+```bash
+cp .env.example .env.local
+```
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+RESEND_API_KEY=your_resend_api_key
+ADMIN_EMAIL=your_admin_email@example.com
+```
+
+4. **Nastavte Supabase**
+
+- Vytvorte nový projekt na [supabase.com](https://supabase.com)
+- V SQL editore spustite `supabase-schema.sql`
+- Skopírujte URL a anon key do `.env.local`
+
+5. **Nastavte Resend**
+
+- Vytvorte účet na [resend.com](https://resend.com)
+- Vytvorte API kľúč
+- Skopírujte kľúč do `.env.local`
+
+6. **Spustite development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Otvorte [http://localhost:3000](http://localhost:3000) v prehliadači.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deploy na Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Pushnite kód na GitHub**
 
-## Learn More
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin your-repo-url
+git push -u origin main
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Importujte projekt do Vercel**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Choďte na [vercel.com](https://vercel.com)
+- Kliknite na "New Project"
+- Importujte váš GitHub repozitár
+- Pridajte environment premenné z `.env.local`
+- Kliknite "Deploy"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Aktualizujte URL v súboroch**
 
-## Deploy on Vercel
+Po deploymente aktualizujte:
+- `app/sitemap.ts` - zmeňte `baseUrl` na vašu doménu
+- `app/robots.ts` - zmeňte sitemap URL
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🗄️ Supabase Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vytvorenie tabuľky
+
+1. Otvorte Supabase Dashboard
+2. Choďte do SQL Editor
+3. Skopírujte obsah `supabase-schema.sql`
+4. Spustite SQL príkaz
+
+### RLS (Row Level Security)
+
+Tabuľka má nastavené RLS politiky:
+- `anon` role môže vkladať nové leady
+- `service_role` môže čítať všetky leady (pre admin panel)
+
+### Admin prístup k leadom
+
+Pre prístup k leadom cez Supabase Dashboard:
+- Použite Service Role key (nie anon key)
+- Alebo vytvorte vlastný admin panel
+
+## 📧 Email Setup (Resend)
+
+1. Vytvorte účet na [resend.com](https://resend.com)
+2. Vytvorte API kľúč
+3. Pridajte doménu (voliteľné, môžete použiť default)
+4. Skopírujte API kľúč do `.env.local`
+
+## 🎨 Customizácia
+
+### Farby a téma
+
+Upravte farby v `app/globals.css` - CSS premenné pre dark/light mode.
+
+### Obsah
+
+- **Projekty**: Upravte v `app/portfolio/page.tsx` a `components/sections/featured-projects.tsx`
+- **Služby**: Upravte v `app/services/page.tsx`
+- **O mne**: Upravte v `app/about/page.tsx`
+- **Texty**: Všetky texty sú v komponentoch, jednoducho upraviteľné
+
+### Video Hero
+
+Pridajte video súbor do `public/video/hero.mp4`. Ak video nie je k dispozícii, použije sa fallback gradient.
+
+## 📁 Štruktúra projektu
+
+```
+webdep.sk/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   ├── about/             # O mne stránka
+│   ├── contact/           # Kontakt stránka
+│   ├── portfolio/         # Portfólio stránka
+│   ├── services/          # Služby stránka
+│   ├── privacy/           # GDPR stránka
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── sitemap.ts         # Sitemap
+│   └── robots.ts          # Robots.txt
+├── components/
+│   ├── sections/          # Sekcie pre home page
+│   ├── ui/                # shadcn/ui komponenty
+│   ├── navbar.tsx         # Navigácia
+│   ├── footer.tsx         # Footer
+│   ├── contact-form.tsx    # Multi-step formulár
+│   └── theme-provider.tsx  # Theme provider
+├── lib/
+│   ├── supabase.ts        # Supabase client
+│   ├── resend.ts          # Resend client
+│   └── utils.ts           # Utility funkcie
+├── public/                # Statické súbory
+│   └── video/             # Video súbory
+├── supabase-schema.sql    # SQL schéma
+└── .env.example           # Environment template
+```
+
+## 🔒 Bezpečnosť
+
+- ✅ Honeypot field proti spamu
+- ✅ Rate limiting (5 requestov/min)
+- ✅ GDPR súhlas
+- ✅ RLS v Supabase
+- ✅ Validácia na klientovi aj serveri
+
+## 🎯 Performance
+
+- ⚡ Next.js 14 App Router
+- 🖼️ Image optimization
+- 📦 Code splitting
+- 🎨 CSS-in-JS s Tailwind
+- 🚀 Vercel Edge Network
+
+## 📝 TODO / Vylepšenia
+
+- [ ] Admin dashboard pre leady
+- [ ] Analytics integrácia
+- [ ] Blog sekcia
+- [ ] Newsletter signup
+- [ ] A/B testovanie
+- [ ] Lighthouse optimalizácie
+
+## 📄 Licencia
+
+Všetky práva vyhradené © 2024 WebDep
+
+## 🤝 Podpora
+
+Pre otázky a podporu kontaktujte: info@webdep.sk
+
+---
+
+Vytvorené s ❤️ pomocou Next.js, TypeScript a TailwindCSS
