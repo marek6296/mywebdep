@@ -51,8 +51,8 @@ export function ProcessGSAP() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReducedMotion) return
 
-    // Optimalizácia pre produkciu - použij requestAnimationFrame
-    const rafId = requestAnimationFrame(() => {
+    // Počkaj na načítanie DOM a vytvor animácie
+    const timer = setTimeout(() => {
       // Najprv explicitne nastav všetky elementy do initial state
       if (titleRef.current) {
         gsap.set(titleRef.current, { opacity: 0, y: 50, clearProps: "none" })
@@ -70,20 +70,18 @@ export function ProcessGSAP() {
         }
       })
 
-      // Potom vytvor animácie s ScrollTrigger - optimalizované pre produkciu
+      // Potom vytvor animácie s ScrollTrigger - presný start keď element vstúpi do viewportu
       if (titleRef.current) {
         gsap.to(titleRef.current, {
           opacity: 1,
           y: 0,
-          duration: 0.6, // Kratšia dĺžka pre lepší výkon
+          duration: 0.8,
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 85%",
-            end: "bottom 50%",
+            start: "top 80%", // Presnejší start - keď element vstúpi do viewportu
             toggleActions: "play none none none",
             once: true,
             invalidateOnRefresh: true,
-            refreshPriority: -1, // Lower priority for production
           },
           ease: "power2.out",
         })
@@ -92,54 +90,45 @@ export function ProcessGSAP() {
       if (lineRef.current) {
         gsap.to(lineRef.current, {
           scaleY: 1,
-          duration: 1.2, // Kratšia dĺžka
+          duration: 1.5,
           scrollTrigger: {
             trigger: lineRef.current,
-            start: "top 85%",
-            end: "bottom 50%",
+            start: "top 80%", // Presnejší start
             toggleActions: "play none none none",
             once: true,
             invalidateOnRefresh: true,
-            refreshPriority: -1,
           },
           ease: "power2.out",
           transformOrigin: "top",
         })
       }
 
-      // Animácia jednotlivých krokov - s batching pre produkciu
+      // Animácia jednotlivých krokov - každý sa animuje keď vstúpi do viewportu
       stepsRef.current.forEach((step, i) => {
         if (step) {
-          // Batch animácie pre lepší výkon
-          requestAnimationFrame(() => {
-            gsap.to(step, {
-              opacity: 1,
-              x: 0,
-              duration: 0.6, // Kratšia dĺžka
-              delay: i * 0.08, // Znížený delay
-              scrollTrigger: {
-                trigger: step,
-                start: "top 85%",
-                end: "bottom 50%",
-                toggleActions: "play none none none",
-                once: true,
-                invalidateOnRefresh: true,
-                refreshPriority: -1,
-              },
-              ease: "power2.out",
-            })
+          gsap.to(step, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: step,
+              start: "top 80%", // Presnejší start - každý element sa animuje keď vstúpi do viewportu
+              toggleActions: "play none none none",
+              once: true,
+              invalidateOnRefresh: true,
+            },
+            ease: "power2.out",
           })
         }
       })
       
       // Refresh ScrollTrigger až po vytvorení všetkých animácií
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh()
-      })
-    })
+      ScrollTrigger.refresh()
+    }, 100)
 
     return () => {
-      cancelAnimationFrame(rafId)
+      clearTimeout(timer)
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [mounted])
