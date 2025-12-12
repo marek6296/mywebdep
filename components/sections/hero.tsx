@@ -13,6 +13,8 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const [laptopImageError, setLaptopImageError] = useState(false)
+  const [planetImageError, setPlanetImageError] = useState(false)
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -185,7 +187,7 @@ export function Hero() {
                   visible: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="relative w-full image-container"
+                className="relative w-full"
               >
                 <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
                   <Image
@@ -195,13 +197,30 @@ export function Hero() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
-                    onError={(e) => {
-                      const container = e.currentTarget.closest('.image-container')
-                      if (container) {
-                        container.setAttribute('style', 'display: none !important')
-                      }
-                    }}
+                    onError={() => setLaptopImageError(true)}
                   />
+                  {laptopImageError && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 z-10">
+                      <div className="text-center p-4">
+                        <motion.div 
+                          className="w-16 h-16 mx-auto mb-2 rounded-lg bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm"
+                          animate={{ 
+                            boxShadow: [
+                              "0 0 20px rgba(59, 130, 246, 0.3)",
+                              "0 0 40px rgba(59, 130, 246, 0.5)",
+                              "0 0 20px rgba(59, 130, 246, 0.3)",
+                            ]
+                          }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                        >
+                          <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </motion.div>
+                        <p className="text-xs text-primary/80 font-medium">Laptop Tech</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
@@ -218,7 +237,7 @@ export function Hero() {
                   visible: { opacity: 1, scale: 1 },
                 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="relative w-full hidden md:block image-container"
+                className="relative w-full hidden md:block"
               >
                 <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
                   <Image
@@ -228,13 +247,32 @@ export function Hero() {
                     className="object-cover"
                     sizes="50vw"
                     priority
-                    onError={(e) => {
-                      const container = e.currentTarget.closest('.image-container')
-                      if (container) {
-                        container.setAttribute('style', 'display: none !important')
-                      }
-                    }}
+                    onError={() => setPlanetImageError(true)}
                   />
+                  {planetImageError && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 z-10">
+                      <div className="text-center p-4">
+                        <motion.div 
+                          className="w-24 h-24 mx-auto mb-2 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm relative"
+                          animate={{ 
+                            boxShadow: [
+                              "0 0 30px rgba(59, 130, 246, 0.3)",
+                              "0 0 60px rgba(59, 130, 246, 0.5)",
+                              "0 0 30px rgba(59, 130, 246, 0.3)",
+                            ]
+                          }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                        >
+                          <div className="absolute inset-0 rounded-full border border-primary/30" style={{ transform: 'scale(1.2)' }} />
+                          <div className="absolute inset-0 rounded-full border border-primary/20" style={{ transform: 'scale(1.4)' }} />
+                          <svg className="w-12 h-12 text-primary relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </motion.div>
+                        <p className="text-xs text-primary/80 font-medium">Planet Tech</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
                 </div>
               </motion.div>
