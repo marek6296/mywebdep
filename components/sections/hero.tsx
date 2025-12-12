@@ -177,7 +177,7 @@ export function Hero() {
           visible: { opacity: 1 },
         }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
