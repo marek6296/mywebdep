@@ -51,95 +51,107 @@ export function ProcessGSAP() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReducedMotion) return
 
-    // Počkaj na načítanie DOM a stránky
-    const timer = setTimeout(() => {
-      // Refresh ScrollTrigger po načítaní
-      ScrollTrigger.refresh()
-
-      // Animácia nadpisu
+    // Optimalizácia pre produkciu - použij requestAnimationFrame
+    const rafId = requestAnimationFrame(() => {
+      // Najprv explicitne nastav všetky elementy do initial state
       if (titleRef.current) {
-        gsap.set(titleRef.current, { opacity: 1, y: 0 })
-        gsap.fromTo(
-          titleRef.current,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-              once: true,
-            },
-            ease: "power2.out",
-          }
-        )
+        gsap.set(titleRef.current, { opacity: 0, y: 50, clearProps: "none" })
       }
-
-      // Animácia timeline čiary
       if (lineRef.current) {
-        gsap.set(lineRef.current, { scaleY: 1 })
-        gsap.fromTo(
-          lineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            duration: 1.5,
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-              once: true,
-            },
-            ease: "power2.out",
-            transformOrigin: "top",
-          }
-        )
+        gsap.set(lineRef.current, { scaleY: 0, clearProps: "none" })
       }
-
-      // Animácia jednotlivých krokov
       stepsRef.current.forEach((step, i) => {
         if (step) {
-          gsap.set(step, { opacity: 1, x: 0 })
-          gsap.fromTo(
-            step,
-            {
-              opacity: 0,
-              x: i % 2 === 0 ? -50 : 50,
-            },
-            {
+          gsap.set(step, { 
+            opacity: 0, 
+            x: i % 2 === 0 ? -50 : 50,
+            clearProps: "none"
+          })
+        }
+      })
+
+      // Potom vytvor animácie s ScrollTrigger - optimalizované pre produkciu
+      if (titleRef.current) {
+        gsap.to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6, // Kratšia dĺžka pre lepší výkon
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 85%",
+            end: "bottom 50%",
+            toggleActions: "play none none none",
+            once: true,
+            invalidateOnRefresh: true,
+            refreshPriority: -1, // Lower priority for production
+          },
+          ease: "power2.out",
+        })
+      }
+
+      if (lineRef.current) {
+        gsap.to(lineRef.current, {
+          scaleY: 1,
+          duration: 1.2, // Kratšia dĺžka
+          scrollTrigger: {
+            trigger: lineRef.current,
+            start: "top 85%",
+            end: "bottom 50%",
+            toggleActions: "play none none none",
+            once: true,
+            invalidateOnRefresh: true,
+            refreshPriority: -1,
+          },
+          ease: "power2.out",
+          transformOrigin: "top",
+        })
+      }
+
+      // Animácia jednotlivých krokov - s batching pre produkciu
+      stepsRef.current.forEach((step, i) => {
+        if (step) {
+          // Batch animácie pre lepší výkon
+          requestAnimationFrame(() => {
+            gsap.to(step, {
               opacity: 1,
               x: 0,
-              duration: 0.8,
-              delay: i * 0.15,
+              duration: 0.6, // Kratšia dĺžka
+              delay: i * 0.08, // Znížený delay
               scrollTrigger: {
                 trigger: step,
                 start: "top 85%",
+                end: "bottom 50%",
                 toggleActions: "play none none none",
                 once: true,
+                invalidateOnRefresh: true,
+                refreshPriority: -1,
               },
               ease: "power2.out",
-            }
-          )
+            })
+          })
         }
       })
-    }, 500)
+      
+      // Refresh ScrollTrigger až po vytvorení všetkých animácií
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh()
+      })
+    })
 
     return () => {
-      clearTimeout(timer)
+      cancelAnimationFrame(rafId)
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [])
+  }, [mounted])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
+    <section ref={sectionRef} className="pt-4 pb-16 sm:pt-6 sm:pb-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0"
-            style={{ opacity: mounted ? undefined : 1 }}
+            style={{ opacity: 0, transform: "translate3d(0, 50px, 0)" }}
           >
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
               Ako pracujeme
@@ -153,11 +165,11 @@ export function ProcessGSAP() {
         <div className="relative max-w-6xl mx-auto">
           {/* Vertikálna čiara (len na desktop) */}
           <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border overflow-hidden">
-            <div
-              ref={lineRef}
-              className="absolute top-0 left-0 right-0 h-full bg-gradient-to-b from-primary to-primary/60"
-              style={{ transformOrigin: "top" }}
-            />
+                  <div
+                    ref={lineRef}
+                    className="absolute top-0 left-0 right-0 h-full bg-gradient-to-b from-primary to-primary/60"
+                    style={{ transformOrigin: "top", transform: "scaleY(0)" }}
+                  />
           </div>
 
           <div className="space-y-12">
@@ -170,7 +182,7 @@ export function ProcessGSAP() {
                 className={`relative flex flex-col md:flex-row items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
-                style={{ opacity: mounted ? undefined : 1 }}
+                style={{ opacity: 0, transform: `translate3d(${index % 2 === 0 ? "-50px" : "50px"}, 0, 0)` }}
               >
                 <div
                   className={`md:w-1/2 ${

@@ -36,16 +36,20 @@ const services = [
 
 export function Services() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <section ref={ref} className="py-24 bg-card/30 backdrop-blur-sm">
+    <section ref={ref} className="pt-4 pb-4 sm:pt-6 sm:pb-6 bg-background relative min-h-[400px]" style={{ contentVisibility: "auto", containIntrinsicSize: "400px" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
@@ -63,12 +67,22 @@ export function Services() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
                 transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
                 whileHover={{ y: -8, scale: 1.02 }}
+                style={{ 
+                  willChange: "transform",
+                  transform: "translate3d(0, 0, 0)",
+                  backfaceVisibility: "hidden",
+                }}
               >
-                <Card className="h-full hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border-border/50 bg-card/80 backdrop-blur-sm group hover:border-primary/50 overflow-hidden relative">
+                <Card className="h-full transition-all duration-300 border-border/50 bg-card/80 group hover:border-primary/50 overflow-hidden relative" style={{ willChange: "transform" }}>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100"
                     animate={{
@@ -114,8 +128,13 @@ export function Services() {
                       {service.features.map((feature, featureIndex) => (
                         <motion.li
                           key={feature}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                          variants={{
+                            hidden: { opacity: 0, x: -10 },
+                            visible: { opacity: 1, x: 0 },
+                          }}
                           transition={{ delay: index * 0.1 + featureIndex * 0.05 }}
                           className="flex items-center text-xs sm:text-sm text-muted-foreground group/item"
                         >

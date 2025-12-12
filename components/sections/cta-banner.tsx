@@ -9,7 +9,6 @@ import { useRef } from "react"
 
 export function CTABanner() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
     <section ref={ref} className="py-24 bg-background relative overflow-hidden">
@@ -43,8 +42,13 @@ export function CTABanner() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.6 }}
           className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-primary/5 border border-primary/20 p-12 text-center"
           whileHover={{ scale: 1.02 }}
@@ -77,8 +81,13 @@ export function CTABanner() {
           
           <div className="relative z-10">
             <motion.h2
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px", amount: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.95 },
+                visible: { opacity: 1, scale: 1 },
+              }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 break-words"
             >
@@ -100,16 +109,26 @@ export function CTABanner() {
               </motion.span>
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px", amount: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0"
             >
               Kontaktujte ma ešte dnes a získajte bezplatnú konzultáciu o vašom projekte.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px", amount: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
               transition={{ duration: 0.6, delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

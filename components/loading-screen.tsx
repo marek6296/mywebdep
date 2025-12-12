@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)
@@ -9,10 +9,10 @@ export function LoadingScreen() {
 
   useEffect(() => {
     // Simulácia načítania
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(timer)
+          clearInterval(interval)
           setTimeout(() => setIsLoading(false), 300)
           return 100
         }
@@ -20,14 +20,14 @@ export function LoadingScreen() {
       })
     }, 30)
 
-    // Fallback - po 2 sekundách určite skryť
+    // Fallback - po 3 sekundách určite skryť
     const timeout = setTimeout(() => {
       setIsLoading(false)
-      clearInterval(timer)
-    }, 2000)
+      clearInterval(interval)
+    }, 3000)
 
     return () => {
-      clearInterval(timer)
+      clearInterval(interval)
       clearTimeout(timeout)
     }
   }, [])
@@ -48,23 +48,29 @@ export function LoadingScreen() {
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="w-64 h-2 bg-secondary rounded-full overflow-hidden mb-2"
+              className="w-64 h-1 bg-primary/20 rounded-full overflow-hidden mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
               <motion.div
-                className="h-full bg-primary"
-                initial={{ width: "0%" }}
+                className="h-full bg-primary rounded-full"
+                initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               />
             </motion.div>
-            <p className="text-sm text-muted-foreground">{Math.round(progress)}%</p>
+            <motion.p
+              className="mt-4 text-sm text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Načítavam...
+            </motion.p>
           </div>
         </motion.div>
       )}
     </AnimatePresence>
   )
 }
-

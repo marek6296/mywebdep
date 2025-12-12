@@ -189,6 +189,47 @@ webdep.sk/
 - 📦 Code splitting
 - 🎨 CSS-in-JS s Tailwind
 - 🚀 Vercel Edge Network
+- 🎬 GPU-accelerated animations (translate3d)
+- 📱 Content visibility optimization
+- ⚙️ Preload animations (200px margin)
+- 🎭 Reduced motion support
+
+### Performance Checklist
+
+Ak sa lag vráti, skontroluj:
+
+1. **Scroll Performance**
+   - [ ] Chrome DevTools > Performance > Record scroll
+   - [ ] FPS meter (Chrome DevTools > More tools > Rendering > FPS meter)
+   - [ ] Skontroluj, či nie sú re-renderi pri scrollovaní (React DevTools Profiler)
+
+2. **Animations**
+   - [ ] Všetky animácie používajú `transform` a `opacity` (nie `top/left/width/height`)
+   - [ ] `will-change` je len na animovaných elementoch
+   - [ ] `translate3d(0, 0, 0)` pre GPU acceleration
+
+3. **IntersectionObserver**
+   - [ ] `margin: "200px"` pre prednačítanie animácií
+   - [ ] Above-the-fold animácie sa spúšťajú hneď (nie cez IntersectionObserver)
+
+4. **Backdrop Blur**
+   - [ ] Obmedzený počet backdrop-blur efektov
+   - [ ] Nepoužíva sa na veľkých plochách
+
+5. **Video/Images**
+   - [ ] Video má `preload="auto"` a `playsInline`
+   - [ ] Obrázky používajú `next/image` s `loading="lazy"`
+
+6. **CSS**
+   - [ ] `content-visibility: auto` na ťažkých sekciách
+   - [ ] `contain: layout style paint` kde sa dá
+
+### Debug Flag
+
+Vypni animácie pre debugging:
+```bash
+NEXT_PUBLIC_DISABLE_ANIMATIONS=true npm run dev
+```
 
 ## 📝 TODO / Vylepšenia
 

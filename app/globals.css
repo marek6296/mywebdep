@@ -233,7 +233,62 @@
     }
   }
 
-  /* Reduced motion */
+  /* Performance optimizations */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 80px; /* Offset pre fixed navbar */
+  }
+  
+  /* Scroll restoration - začína vždy hore */
+  html {
+    scroll-restoration: manual;
+  }
+  
+  /* Hardware acceleration for animations */
+  [data-animate] {
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Content visibility for heavy sections */
+  section {
+    contain: layout style paint;
+  }
+  
+  /* Optimize cards */
+  [class*="Card"] {
+    contain: layout style;
+  }
+  
+  /* Production optimizations */
+  /* Optimize scroll performance */
+  body {
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* GPU acceleration only for animated elements */
+  [class*="motion"][data-animate] {
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  
+  /* Remove will-change when animation completes */
+  [class*="motion"]:not([data-animate]) {
+    will-change: auto;
+  }
+  
+  /* Reduced motion for users who prefer it */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -241,6 +296,13 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    [class*="motion"],
+    [class*="animate"] {
+      animation: none !important;
+      transition: none !important;
     }
   }
 }

@@ -18,8 +18,13 @@ export function Hero() {
     offset: ["start start", "end start"],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  // Optimized transforms with clamping for production
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150], {
+    clamp: true,
+  })
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], {
+    clamp: true,
+  })
 
   useEffect(() => {
     if (videoRef.current) {
@@ -30,17 +35,22 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden pt-16 sm:pt-0">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
       
       {/* Floating Elements */}
       <FloatingElements />
       
-      {/* Video Background with Parallax */}
+      {/* Video Background with Parallax - optimalizované pre produkciu */}
       <motion.div 
         className="absolute inset-0 z-0"
-        style={{ y }}
+        style={{ 
+          y,
+          willChange: isVideoLoaded ? "transform" : "auto",
+          transform: "translate3d(0, 0, 0)",
+          backfaceVisibility: "hidden",
+        }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-10" />
         <video
@@ -49,8 +59,19 @@ export function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster=""
           className="w-full h-full object-cover opacity-30"
-          style={{ display: isVideoLoaded ? "block" : "none" }}
+          style={{ 
+            display: isVideoLoaded ? "block" : "none",
+            willChange: isVideoLoaded ? "transform" : "auto",
+            transform: "translate3d(0, 0, 0)",
+            backfaceVisibility: "hidden",
+            WebkitTransform: "translate3d(0, 0, 0)",
+            // Production optimizations
+            objectFit: "cover",
+            pointerEvents: "none",
+          }}
         >
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
@@ -59,15 +80,20 @@ export function Hero() {
         )}
       </motion.div>
 
-      {/* Content with Parallax */}
-      <motion.div 
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        style={{ opacity }}
-      >
+              {/* Content with Parallax - optimalizované pre produkciu */}
+              <motion.div
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 sm:pt-0"
+                style={{ 
+                  opacity,
+                  willChange: isVideoLoaded ? "opacity, transform" : "auto",
+                  transform: "translate3d(0, 0, 0)",
+                  backfaceVisibility: "hidden",
+                }}
+              >
         <div className="max-w-4xl mx-auto">
           <TextReveal>
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2 sm:px-0"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 leading-tight px-2 sm:px-0"
             >
               <motion.span 
                 className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent inline-block break-words"
@@ -88,9 +114,14 @@ export function Hero() {
               <br />
               <motion.span 
                 className="text-foreground inline-block break-words"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 podnikanie digitálnym riešením
               </motion.span>
@@ -99,21 +130,31 @@ export function Hero() {
 
           <TextReveal delay={0.2}>
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0"
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
               <br className="hidden sm:block" />
               <motion.span 
                 className="text-foreground/80 inline-flex flex-wrap gap-2 mt-2 justify-center sm:justify-start"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                transition={{ duration: 0.6, delay: 0.6 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
                   <motion.span
                     key={tech}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
                     transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
                     className="inline-block text-sm sm:text-base"
                   >
@@ -171,9 +212,14 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px", amount: 0.25 }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ duration: 0.6, delay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div

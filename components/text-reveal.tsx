@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { shouldDisableAnimations } from "@/lib/performance"
+import { fadeInUp, viewportSettings, defaultTransition } from "@/lib/motion-variants"
 
 interface TextRevealProps {
   children: React.ReactNode
@@ -12,17 +13,22 @@ interface TextRevealProps {
 
 export function TextReveal({ children, delay = 0, className = "" }: TextRevealProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const disableAnimations = shouldDisableAnimations()
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      initial={disableAnimations ? false : "hidden"}
+      whileInView={disableAnimations ? undefined : "visible"}
+      viewport={viewportSettings}
+      variants={fadeInUp}
       transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ...defaultTransition,
+        delay: disableAnimations ? 0 : delay,
+      }}
+      style={{ 
+        willChange: disableAnimations ? "auto" : "transform, opacity",
+        transform: "translate3d(0, 0, 0)"
       }}
       className={className}
     >

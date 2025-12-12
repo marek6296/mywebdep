@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { useInView, useMotionValue, useSpring } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 
 interface AnimatedCounterProps {
   value: number
@@ -11,19 +11,12 @@ interface AnimatedCounterProps {
 
 export function AnimatedCounter({ value, suffix = "", duration = 2 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
   
   const motionValue = useMotionValue(0)
   const spring = useSpring(motionValue, {
     damping: 60,
     stiffness: 100,
   })
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value)
-    }
-  }, [motionValue, isInView, value])
 
   useEffect(() => {
     spring.on("change", (latest) => {
@@ -33,6 +26,22 @@ export function AnimatedCounter({ value, suffix = "", duration = 2 }: AnimatedCo
     })
   }, [spring, suffix])
 
-  return <span ref={ref}>0{suffix}</span>
+  return (
+    <motion.span
+      ref={ref}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "0px", amount: 0.25 }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      onViewportEnter={() => {
+        motionValue.set(value)
+      }}
+    >
+      0{suffix}
+    </motion.span>
+  )
 }
 

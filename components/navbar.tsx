@@ -27,7 +27,7 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b border-border/40" style={{ backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.div
@@ -123,7 +123,8 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-md"
+            className="md:hidden border-t border-border/40 bg-background/95"
+            style={{ backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
               {navItems.map((item) => (

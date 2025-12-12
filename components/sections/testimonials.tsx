@@ -29,14 +29,18 @@ const testimonials = [
 
 export function Testimonials() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <section ref={ref} className="py-24 bg-card/30 backdrop-blur-sm">
+    <section ref={ref} className="py-24 bg-card/30" style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -54,12 +58,18 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-              whileHover={{ y: -8, scale: 1.02 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px", amount: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ rotateY: 5, scale: 1.02 }}
+              className="perspective-1000"
             >
-              <Card className="h-full border-border/50 bg-card/80 backdrop-blur-sm overflow-hidden relative group">
+              <Card className="h-full border-border/50 bg-card/80 overflow-hidden relative group" style={{ willChange: "transform" }}>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100"
                   animate={{
@@ -74,15 +84,25 @@ export function Testimonials() {
                 <CardContent className="pt-4 sm:pt-6 relative z-10 px-4 sm:px-6">
                   <motion.div
                     className="flex mb-3 sm:mb-4"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0 },
+                      visible: { opacity: 1, scale: 1 },
+                    }}
                     transition={{ delay: index * 0.1 + 0.2 }}
                   >
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                        animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0, rotate: -180 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0, rotate: -180 },
+                          visible: { opacity: 1, scale: 1, rotate: 0 },
+                        }}
                         transition={{
                           type: "spring",
                           stiffness: 200,
@@ -96,15 +116,25 @@ export function Testimonials() {
                   </motion.div>
                   <motion.p
                     className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 italic break-words"
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
                     transition={{ delay: index * 0.1 + 0.4 }}
                   >
                     "{testimonial.content}"
                   </motion.p>
                   <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
                     transition={{ delay: index * 0.1 + 0.5 }}
                   >
                     <p className="font-semibold text-sm sm:text-base break-words">{testimonial.name}</p>

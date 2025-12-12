@@ -39,7 +39,6 @@ const features = [
 
 export function TrustBar() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-30px" })
 
   return (
     <section ref={ref} className="py-16 border-y border-border/40 bg-card/50 backdrop-blur-sm">
@@ -50,8 +49,13 @@ export function TrustBar() {
             return (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center group"
                 whileHover={{ scale: 1.05 }}
@@ -79,8 +83,13 @@ export function TrustBar() {
                 {feature.value && (
                   <motion.div
                     className="text-xl sm:text-2xl font-bold text-primary"
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : { scale: 0 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0 },
+                      visible: { opacity: 1, scale: 1 },
+                    }}
                     transition={{ 
                       type: "spring",
                       stiffness: 200,

@@ -69,16 +69,20 @@ const products = [
 
 export function FeaturedProducts() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <section ref={ref} className="py-24 bg-background">
+    <section ref={ref} className="pt-16 sm:pt-20 pb-8 sm:pb-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4 sm:px-0">
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent break-words">
@@ -94,12 +98,22 @@ export function FeaturedProducts() {
           {products.slice(0, 2).map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px", amount: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
               transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
               whileHover={{ y: -8 }}
+              style={{ 
+                willChange: "transform",
+                transform: "translate3d(0, 0, 0)",
+                backfaceVisibility: "hidden",
+              }}
             >
-              <Card className="h-full hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm group overflow-hidden">
+              <Card className="h-full transition-all duration-300 border-border/50 bg-card/50 group overflow-hidden" style={{ willChange: "transform" }}>
                 <div className="relative h-64 overflow-hidden rounded-t-lg">
                   <motion.div
                     className="absolute inset-0"
@@ -167,10 +181,15 @@ export function FeaturedProducts() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px", amount: 0.25 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center"
+          className="text-center mt-6 sm:mt-8"
         >
           <Button asChild size="lg" variant="outline">
             <Link href="/obchod">
