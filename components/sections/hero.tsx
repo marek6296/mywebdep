@@ -36,7 +36,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
       
@@ -83,7 +83,7 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-8 sm:py-0"
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-0"
                 style={{ 
                   opacity,
                   willChange: isVideoLoaded ? "opacity, transform" : "auto",
@@ -124,14 +124,17 @@ export function Hero() {
                 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                podnikanie digitálnym riešením
+                <span className="block sm:inline">podníkanie</span>{" "}
+                <span className="block sm:inline">digitálnym</span>
+                <br className="sm:hidden" />
+                <span className="block sm:inline">riešením</span>
               </motion.span>
             </motion.h1>
           </TextReveal>
 
           <TextReveal delay={0.2}>
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 sm:mb-10 max-w-2xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed"
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
             </motion.p>
@@ -139,7 +142,7 @@ export function Hero() {
 
           <TextReveal delay={0.3}>
             <motion.div 
-              className="text-foreground/80 flex flex-wrap gap-2 justify-center mb-4 sm:mb-8"
+              className="text-foreground/80 flex flex-wrap gap-2 justify-center mb-6 sm:mb-8"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "0px", amount: 0.25 }}
@@ -169,73 +172,78 @@ export function Hero() {
             </motion.div>
           </TextReveal>
 
-          {/* Laptop Image - shown on mobile */}
-          <TextReveal delay={0.35}>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "0px", amount: 0.25 }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="relative w-full max-w-md mx-auto mb-6 sm:mb-8 md:hidden image-container"
-            >
-              <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30">
-                <Image
-                  src="/images/laptop-tech.jpg"
-                  alt="Laptop s holografickými dátovými vizualizáciami"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 0px"
-                  onError={(e) => {
-                    const container = e.currentTarget.closest('.image-container')
-                    if (container) {
-                      container.setAttribute('style', 'display: none !important')
-                    }
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
-              </div>
-            </motion.div>
-          </TextReveal>
+          {/* Images Section - Mobile: Laptop, Desktop: Both images side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 sm:mb-8 max-w-5xl mx-auto">
+            {/* Laptop Image - Mobile full width, Desktop left */}
+            <TextReveal delay={0.35}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="relative w-full image-container"
+              >
+                <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
+                  <Image
+                    src="/images/laptop-tech.jpg"
+                    alt="Laptop s holografickými dátovými vizualizáciami"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                    onError={(e) => {
+                      const container = e.currentTarget.closest('.image-container')
+                      if (container) {
+                        container.setAttribute('style', 'display: none !important')
+                      }
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                </div>
+              </motion.div>
+            </TextReveal>
 
-          {/* Planet Image - shown on desktop */}
-          <TextReveal delay={0.35}>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "0px", amount: 0.25 }}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1 },
-              }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="relative w-full max-w-2xl mx-auto mb-6 sm:mb-8 hidden md:block image-container"
-            >
-              <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30">
-                <Image
-                  src="/images/planet-tech.jpg"
-                  alt="Planéta s modrými prstencami a svetielkami"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 768px) 50vw, 0px"
-                  onError={(e) => {
-                    const container = e.currentTarget.closest('.image-container')
-                    if (container) {
-                      container.setAttribute('style', 'display: none !important')
-                    }
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
-              </div>
-            </motion.div>
-          </TextReveal>
+            {/* Planet Image - Desktop right, hidden on mobile */}
+            <TextReveal delay={0.4}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px", amount: 0.25 }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="relative w-full hidden md:block image-container"
+              >
+                <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
+                  <Image
+                    src="/images/planet-tech.jpg"
+                    alt="Planéta s modrými prstencami a svetielkami"
+                    fill
+                    className="object-cover"
+                    sizes="50vw"
+                    priority
+                    onError={(e) => {
+                      const container = e.currentTarget.closest('.image-container')
+                      if (container) {
+                        container.setAttribute('style', 'display: none !important')
+                      }
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                </div>
+              </motion.div>
+            </TextReveal>
+          </div>
 
-          <TextReveal delay={0.4}>
+          <TextReveal delay={0.5}>
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-4 sm:mt-0"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
