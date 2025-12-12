@@ -28,9 +28,9 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
+      <div className="absolute inset-0 bg-gradient-animated noise-overlay opacity-50" />
       
       {/* Floating Elements */}
       <FloatingElements />
@@ -63,7 +63,7 @@ export function Hero() {
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/50 to-background/30 z-2" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30 z-2" />
         </div>
         {/* Planet Image - Desktop right, hidden on mobile */}
         <div className="absolute inset-0 hidden md:block md:w-1/2 md:right-0">
@@ -82,7 +82,7 @@ export function Hero() {
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/50 to-background/30 z-2" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30 z-2" />
         </div>
       </motion.div>
 
