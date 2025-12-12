@@ -199,7 +199,6 @@ export function Hero() {
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
                         priority
-                        unoptimized
                         onError={() => setLaptopImageError(true)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
@@ -253,7 +252,6 @@ export function Hero() {
                         className="object-cover"
                         sizes="50vw"
                         priority
-                        unoptimized
                         onError={() => setPlanetImageError(true)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
