@@ -25,7 +25,7 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
       
@@ -34,7 +34,7 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center min-h-screen py-16 sm:py-20"
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full py-12 sm:py-16"
                 style={{ 
                   opacity,
                   willChange: "opacity, transform",
@@ -42,7 +42,7 @@ export function Hero() {
                   backfaceVisibility: "hidden",
                 }}
               >
-        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-3 sm:space-y-5">
           <TextReveal>
             <motion.h1
               className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-tight text-center"
@@ -125,7 +125,7 @@ export function Hero() {
 
           <TextReveal delay={0.5}>
             <motion.div
-              className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center pt-4"
+              className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center pt-2"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -177,7 +177,7 @@ export function Hero() {
           visible: { opacity: 1 },
         }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
