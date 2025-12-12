@@ -51,10 +51,14 @@ export function ProcessGSAP() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReducedMotion) return
 
-    // Počkaj na načítanie DOM
+    // Počkaj na načítanie DOM a stránky
     const timer = setTimeout(() => {
+      // Refresh ScrollTrigger po načítaní
+      ScrollTrigger.refresh()
+
       // Animácia nadpisu
       if (titleRef.current) {
+        gsap.set(titleRef.current, { opacity: 1, y: 0 })
         gsap.fromTo(
           titleRef.current,
           { opacity: 0, y: 50 },
@@ -66,6 +70,7 @@ export function ProcessGSAP() {
               trigger: sectionRef.current,
               start: "top 80%",
               toggleActions: "play none none none",
+              once: true,
             },
             ease: "power2.out",
           }
@@ -74,6 +79,7 @@ export function ProcessGSAP() {
 
       // Animácia timeline čiary
       if (lineRef.current) {
+        gsap.set(lineRef.current, { scaleY: 1 })
         gsap.fromTo(
           lineRef.current,
           { scaleY: 0 },
@@ -84,6 +90,7 @@ export function ProcessGSAP() {
               trigger: sectionRef.current,
               start: "top 80%",
               toggleActions: "play none none none",
+              once: true,
             },
             ease: "power2.out",
             transformOrigin: "top",
@@ -94,6 +101,7 @@ export function ProcessGSAP() {
       // Animácia jednotlivých krokov
       stepsRef.current.forEach((step, i) => {
         if (step) {
+          gsap.set(step, { opacity: 1, x: 0 })
           gsap.fromTo(
             step,
             {
@@ -104,18 +112,19 @@ export function ProcessGSAP() {
               opacity: 1,
               x: 0,
               duration: 0.8,
-              delay: i * 0.2,
+              delay: i * 0.15,
               scrollTrigger: {
                 trigger: step,
                 start: "top 85%",
                 toggleActions: "play none none none",
+                once: true,
               },
               ease: "power2.out",
             }
           )
         }
       })
-    }, 100)
+    }, 500)
 
     return () => {
       clearTimeout(timer)

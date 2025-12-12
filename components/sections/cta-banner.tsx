@@ -9,7 +9,7 @@ import { useRef } from "react"
 
 export function CTABanner() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
     <section ref={ref} className="py-24 bg-background relative overflow-hidden">

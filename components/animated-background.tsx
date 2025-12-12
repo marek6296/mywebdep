@@ -17,17 +17,22 @@ export function AnimatedBackground() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-    // Generuj particles len na klientovi
-    const newParticles: Particle[] = Array.from({ length: 15 }).map((_, i) => ({
-      id: i,
-      initialX: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1920),
-      initialY: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1080),
-      initialOpacity: Math.random() * 0.5 + 0.2,
-      duration: Math.random() * 10 + 15,
-      delay: Math.random() * 5,
-    }))
-    setParticles(newParticles)
+    // Počkaj na načítanie stránky
+    const timer = setTimeout(() => {
+      setMounted(true)
+      // Generuj particles len na klientovi
+      const newParticles: Particle[] = Array.from({ length: 10 }).map((_, i) => ({
+        id: i,
+        initialX: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1920),
+        initialY: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1080),
+        initialOpacity: Math.random() * 0.3 + 0.1,
+        duration: Math.random() * 10 + 15,
+        delay: Math.random() * 5,
+      }))
+      setParticles(newParticles)
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (

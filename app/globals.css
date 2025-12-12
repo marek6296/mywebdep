@@ -119,6 +119,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Performance optimizations */
+  * {
+    will-change: auto;
+  }
+  
+  [data-animate] {
+    will-change: transform, opacity;
+  }
 }
 
 /* Animated gradient background */

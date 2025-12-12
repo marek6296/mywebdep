@@ -12,7 +12,7 @@ interface TextRevealProps {
 
 export function TextReveal({ children, delay = 0, className = "" }: TextRevealProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
     <motion.div

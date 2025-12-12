@@ -39,7 +39,7 @@ const features = [
 
 export function TrustBar() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-30px" })
 
   return (
     <section ref={ref} className="py-16 border-y border-border/40 bg-card/50 backdrop-blur-sm">

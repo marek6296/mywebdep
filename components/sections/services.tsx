@@ -36,7 +36,7 @@ const services = [
 
 export function Services() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
     <section ref={ref} className="py-24 bg-card/30 backdrop-blur-sm">
@@ -63,11 +63,10 @@ export function Services() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30, rotateX: -15 }}
-                animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 30, rotateX: -15 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                style={{ perspective: 1000 }}
               >
                 <Card className="h-full hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border-border/50 bg-card/80 backdrop-blur-sm group hover:border-primary/50 overflow-hidden relative">
                   <motion.div
