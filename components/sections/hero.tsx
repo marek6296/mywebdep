@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useRef, useEffect, useState } from "react"
 import { FloatingElements } from "@/components/floating-elements"
@@ -85,7 +85,7 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-0"
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-0"
                 style={{ 
                   opacity,
                   willChange: isVideoLoaded ? "opacity, transform" : "auto",
@@ -96,7 +96,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto">
           <TextReveal>
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-center"
             >
               <motion.span 
                 className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent inline-block break-words"
@@ -126,17 +126,16 @@ export function Hero() {
                 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <span className="block sm:inline">podníkanie</span>{" "}
-                <span className="block sm:inline">digitálnym</span>
-                <br className="sm:hidden" />
-                <span className="block sm:inline">riešením</span>
+                podníkanie digitálnym
+                <br />
+                riešením
               </motion.span>
             </motion.h1>
           </TextReveal>
 
           <TextReveal delay={0.2}>
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed text-center"
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
             </motion.p>
@@ -168,14 +167,14 @@ export function Hero() {
                   className="text-sm sm:text-base"
                 >
                   {tech}
-                  {i < 2 && <span className="mx-1">•</span>}
+                  {i < 2 && <span className="mx-1.5">•</span>}
                 </motion.span>
               ))}
             </motion.div>
           </TextReveal>
 
-          {/* Images Section - Mobile: Laptop, Desktop: Both images side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 sm:mb-8 max-w-5xl mx-auto">
+          {/* Images Section - Mobile: Laptop only, Desktop: Both images side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 sm:mb-8 max-w-5xl mx-auto px-4 sm:px-0">
             {/* Laptop Image - Mobile full width, Desktop left */}
             <TextReveal delay={0.35}>
               <motion.div
@@ -187,7 +186,7 @@ export function Hero() {
                   visible: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="relative w-full"
+                className="relative w-full md:order-1"
               >
                 <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
                   {!laptopImageError ? (
@@ -240,7 +239,7 @@ export function Hero() {
                   visible: { opacity: 1, scale: 1 },
                 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="relative w-full hidden md:block"
+                className="relative w-full hidden md:block md:order-2"
               >
                 <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30 shadow-lg">
                   {!planetImageError ? (
@@ -287,14 +286,14 @@ export function Hero() {
 
           <TextReveal delay={0.5}>
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-4 sm:mt-0"
+              className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto"
               >
-                <Button asChild size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group relative overflow-hidden">
+                <Button asChild size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Link href="/obchod">
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -317,10 +316,10 @@ export function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto"
               >
-                <Button asChild variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group">
+                <Button asChild variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto group border-primary/50 bg-background/50 hover:bg-background/80">
                   <Link href="/contact">
                     Kontakt
-                    <Play className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               </motion.div>
