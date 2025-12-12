@@ -36,7 +36,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-animated noise-overlay" />
       
@@ -83,7 +83,7 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-0"
+                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-8 sm:py-0"
                 style={{ 
                   opacity,
                   willChange: isVideoLoaded ? "opacity, transform" : "auto",
@@ -180,45 +180,22 @@ export function Hero() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="relative w-full max-w-md mx-auto mb-6 sm:mb-8 md:hidden"
+              className="relative w-full max-w-md mx-auto mb-6 sm:mb-8 md:hidden image-container"
             >
               <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30">
-                {/* Try to load image, fallback to placeholder */}
-                <div className="absolute inset-0">
-                  <Image
-                    src="/images/laptop-tech.jpg"
-                    alt="Laptop s holografickými dátovými vizualizáciami"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 0px"
-                    onError={(e) => {
-                      // Hide image on error, show placeholder
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-                {/* Placeholder - shown when image fails to load */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10">
-                  <div className="text-center p-8">
-                    <motion.div 
-                      className="w-24 h-24 mx-auto mb-4 rounded-lg bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm"
-                      animate={{ 
-                        boxShadow: [
-                          "0 0 20px rgba(59, 130, 246, 0.3)",
-                          "0 0 40px rgba(59, 130, 246, 0.5)",
-                          "0 0 20px rgba(59, 130, 246, 0.3)",
-                        ]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      <svg className="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </motion.div>
-                    <p className="text-xs text-primary/80 font-medium">Laptop Tech</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/laptop-tech.jpg"
+                  alt="Laptop s holografickými dátovými vizualizáciami"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 0px"
+                  onError={(e) => {
+                    const container = e.currentTarget.closest('.image-container')
+                    if (container) {
+                      container.setAttribute('style', 'display: none !important')
+                    }
+                  }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
               </div>
             </motion.div>
@@ -235,48 +212,22 @@ export function Hero() {
                 visible: { opacity: 1, scale: 1 },
               }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="relative w-full max-w-2xl mx-auto mb-6 sm:mb-8 hidden md:block"
+              className="relative w-full max-w-2xl mx-auto mb-6 sm:mb-8 hidden md:block image-container"
             >
               <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10 border border-primary/30">
-                {/* Try to load image, fallback to placeholder */}
-                <div className="absolute inset-0">
-                  <Image
-                    src="/images/planet-tech.jpg"
-                    alt="Planéta s modrými prstencami a svetielkami"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(min-width: 768px) 50vw, 0px"
-                    onError={(e) => {
-                      // Hide image on error, show placeholder
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-                {/* Placeholder - shown when image fails to load */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/20 to-primary/10">
-                  <div className="text-center p-8">
-                    <motion.div 
-                      className="w-32 h-32 mx-auto mb-4 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center backdrop-blur-sm relative"
-                      animate={{ 
-                        boxShadow: [
-                          "0 0 30px rgba(59, 130, 246, 0.3)",
-                          "0 0 60px rgba(59, 130, 246, 0.5)",
-                          "0 0 30px rgba(59, 130, 246, 0.3)",
-                        ]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      {/* Rings around planet */}
-                      <div className="absolute inset-0 rounded-full border border-primary/30" style={{ transform: 'scale(1.2)' }} />
-                      <div className="absolute inset-0 rounded-full border border-primary/20" style={{ transform: 'scale(1.4)' }} />
-                      <svg className="w-16 h-16 text-primary relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </motion.div>
-                    <p className="text-xs text-primary/80 font-medium">Planet Tech</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/planet-tech.jpg"
+                  alt="Planéta s modrými prstencami a svetielkami"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 50vw, 0px"
+                  onError={(e) => {
+                    const container = e.currentTarget.closest('.image-container')
+                    if (container) {
+                      container.setAttribute('style', 'display: none !important')
+                    }
+                  }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
               </div>
             </motion.div>
