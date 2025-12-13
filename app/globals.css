@@ -334,6 +334,29 @@
     }
   }
   
+  /* Desktop verzia hero sekcie - väčšie texty */
+  @media (min-width: 1024px) {
+    .hero-headline {
+      font-size: 4.5rem !important;
+    }
+    
+    .hero-title-main {
+      font-size: 5.5rem !important;
+    }
+    
+    .hero-title-sub {
+      font-size: 4.5rem !important;
+    }
+    
+    .hero-content-wrapper p {
+      font-size: 1.25rem !important;
+    }
+    
+    .hero-content-wrapper .text-foreground\\/90 {
+      font-size: 1rem !important;
+    }
+  }
+  
   /* Zabránenie layout shift */
   * {
     box-sizing: border-box;

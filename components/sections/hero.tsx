@@ -94,6 +94,7 @@ export function Hero() {
           >
             <TextReveal>
               <h1
+                className="hero-headline"
                 style={{ 
                   fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
                   fontWeight: "700",
@@ -108,7 +109,7 @@ export function Hero() {
                 }}
               >
                 <span 
-                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent hero-title-main"
                   style={{
                     display: "block",
                     backgroundSize: "200%",
@@ -124,7 +125,7 @@ export function Hero() {
                   TRANSFORMUJTE
                 </span>
                 <span 
-                  className="text-foreground"
+                  className="text-foreground hero-title-sub"
                   style={{
                     display: "block",
                     marginTop: "8px",
