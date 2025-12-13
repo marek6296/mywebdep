@@ -52,26 +52,35 @@ export function Hero() {
             backfaceVisibility: "hidden",
           }}
         >
-          {/* Headline - stabilný max-width, fixné line-height */}
-          <div className="text-center mb-8" style={{ maxWidth: "900px", margin: "0 auto" }}>
+          {/* Headline - fixné rozmery */}
+          <div 
+            className="text-center mb-8" 
+            style={{ 
+              maxWidth: "900px", 
+              margin: "0 auto",
+              width: "100%",
+            }}
+          >
             <TextReveal>
               <h1
                 className="font-bold mb-6"
                 style={{ 
-                  fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
+                  fontSize: "2.5rem", // Mobile - fixné
                   lineHeight: "1.15",
                   letterSpacing: "-0.02em",
-                  maxWidth: "100%",
+                  maxWidth: "900px",
                   margin: "0 auto",
+                  width: "100%",
                 }}
               >
                 <span 
-                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
+                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block"
                   style={{
                     backgroundSize: "200%",
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
+                    fontSize: "inherit",
                   }}
                 >
                   TRANSFORMUJTE
@@ -82,6 +91,7 @@ export function Hero() {
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
+                    fontSize: "inherit",
                   }}
                 >
                   podníkanie digitálnym
@@ -92,17 +102,25 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Description - stabilný max-width, fixné line-height */}
-          <div className="text-center mb-6" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          {/* Description - fixné rozmery */}
+          <div 
+            className="text-center mb-6" 
+            style={{ 
+              maxWidth: "700px", 
+              margin: "0 auto",
+              width: "100%",
+            }}
+          >
             <TextReveal delay={0.2}>
               <p
                 className="text-foreground/90"
                 style={{ 
-                  fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
+                  fontSize: "1rem", // Fixné
                   lineHeight: "1.6",
                   letterSpacing: "0",
-                  maxWidth: "100%",
+                  maxWidth: "700px",
                   margin: "0 auto",
+                  width: "100%",
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -110,15 +128,25 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Tech Stack */}
-          <div className="text-center mb-8">
+          {/* Tech Stack - fixné rozmery */}
+          <div 
+            className="text-center mb-8"
+            style={{
+              maxWidth: "600px",
+              margin: "0 auto",
+              width: "100%",
+            }}
+          >
             <TextReveal delay={0.3}>
               <div 
                 className="text-foreground/90 flex flex-wrap gap-2 justify-center items-center"
                 style={{ 
-                  fontSize: "clamp(0.875rem, 1.2vw, 0.95rem)",
+                  fontSize: "0.875rem", // Fixné
                   lineHeight: "1.5",
                   letterSpacing: "0",
+                  maxWidth: "600px",
+                  margin: "0 auto",
+                  width: "100%",
                 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
@@ -128,6 +156,7 @@ export function Hero() {
                     style={{
                       fontWeight: "500",
                       lineHeight: "1.5",
+                      fontSize: "inherit",
                     }}
                   >
                     {tech}
@@ -139,10 +168,22 @@ export function Hero() {
           </div>
 
           {/* CTA Buttons - fixné rozmery */}
-          <div className="text-center">
+          <div 
+            className="text-center"
+            style={{
+              maxWidth: "550px",
+              margin: "0 auto",
+              width: "100%",
+            }}
+          >
             <TextReveal delay={0.5}>
               <div
-                className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-lg mx-auto"
+                className="flex flex-col md:flex-row gap-4 justify-center items-center"
+                style={{
+                  maxWidth: "550px",
+                  margin: "0 auto",
+                  width: "100%",
+                }}
               >
                 <Button 
                   asChild 
@@ -151,10 +192,12 @@ export function Hero() {
                   style={{
                     height: "56px",
                     minWidth: "200px",
+                    maxWidth: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
                     lineHeight: "1.5",
+                    width: "100%",
                   }}
                 >
                   <Link href="/obchod">
@@ -180,10 +223,12 @@ export function Hero() {
                   style={{
                     height: "56px",
                     minWidth: "200px",
+                    maxWidth: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
                     lineHeight: "1.5",
+                    width: "100%",
                   }}
                 >
                   <Link href="/contact">

@@ -143,6 +143,25 @@
     font-weight: 500;
     line-height: 1.5;
   }
+  
+  /* Hero sekcia - fixné rozmery na breakpointoch */
+  @media (min-width: 768px) {
+    section h1 {
+      font-size: 3rem !important;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    section h1 {
+      font-size: 4rem !important;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    section h1 {
+      font-size: 4.5rem !important;
+    }
+  }
 }
 
 /* Animated gradient background */
