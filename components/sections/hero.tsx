@@ -32,7 +32,7 @@ export function Hero() {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
-        paddingTop: "64px",
+        paddingTop: "120px",
         paddingBottom: "80px",
         boxSizing: "border-box",
       }}
@@ -88,7 +88,9 @@ export function Hero() {
               width: "900px",
               maxWidth: "900px",
               textAlign: "center",
+              marginTop: "0",
               marginBottom: "32px",
+              paddingTop: "0",
               boxSizing: "border-box",
             }}
           >
