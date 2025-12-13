@@ -50,10 +50,7 @@ export function CTABanner() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/3 border border-primary/10 p-12 text-center"
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-          }}
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/3 border border-primary/10 p-12 text-center cta-banner-box"
           whileHover={{ scale: 1.02 }}
         >
           <motion.div

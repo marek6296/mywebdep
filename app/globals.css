@@ -443,9 +443,25 @@
     color: var(--muted-foreground) !important;
   }
   
-  /* CTA Banner pozadie - svetlejšie */
-  .dark .cta-title {
-    background-color: rgba(255, 255, 255, 0.05) !important;
+  /* CTA Banner pozadie - svetlejšie len na svetlom režime */
+  .cta-banner-box {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    background-image: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.03)) !important;
+    border-color: rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  .dark .cta-banner-box {
+    background-color: transparent !important;
+    background-image: linear-gradient(to right, oklch(from var(--primary) l c h / 0.2), oklch(from var(--primary) l c h / 0.1), oklch(from var(--primary) l c h / 0.05)) !important;
+    border-color: oklch(from var(--primary) l c h / 0.2) !important;
+  }
+  
+  .cta-gradient-overlay {
+    opacity: 0.2 !important;
+  }
+  
+  .dark .cta-gradient-overlay {
+    opacity: 0.5 !important;
   }
   
   /* Zabránenie layout shift */
