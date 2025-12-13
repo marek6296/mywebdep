@@ -352,16 +352,16 @@ export function Hero() {
               </div>
             </TextReveal>
             
-            {/* Scroll Indicator - fixný hneď pod Kontakt */}
+            {/* Scroll Indicator - moderný dizajn */}
             <div
               style={{
                 position: "absolute",
                 bottom: "0",
                 left: "50%",
-                marginLeft: "-12px",
+                marginLeft: "-20px",
                 zIndex: 30,
-                width: "24px",
-                height: "40px",
+                width: "40px",
+                height: "60px",
                 pointerEvents: "none",
                 boxSizing: "border-box",
                 marginBottom: "0",
@@ -376,30 +376,62 @@ export function Hero() {
                   opacity: { duration: 0.6, delay: 1 },
                 }}
                 style={{
-                  width: "24px",
-                  height: "40px",
-                  border: "2px solid rgba(59, 130, 246, 0.5)",
-                  borderRadius: "9999px",
+                  width: "40px",
+                  height: "60px",
                   display: "flex",
+                  flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "flex-start",
-                  paddingTop: "8px",
+                  alignItems: "center",
                   boxSizing: "border-box",
                   position: "relative",
                 }}
               >
+                {/* Šípka smerom dole */}
                 <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  animate={{ 
+                    y: [0, 8, 0],
+                    opacity: [0.4, 1, 0.4],
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   style={{
-                    width: "6px",
-                    height: "6px",
-                    backgroundColor: "rgb(59, 130, 246)",
-                    borderRadius: "9999px",
+                    width: "24px",
+                    height: "24px",
+                    borderRight: "2px solid rgb(59, 130, 246)",
+                    borderBottom: "2px solid rgb(59, 130, 246)",
+                    transform: "rotate(45deg)",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
                 />
+                {/* Pulzujúce body */}
+                <div style={{ display: "flex", gap: "4px", marginTop: "8px" }}>
+                  {[0, 1, 2].map((i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 1, 0.3],
+                      }}
+                      transition={{ 
+                        duration: 1.5, 
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "easeInOut",
+                      }}
+                      style={{
+                        width: "4px",
+                        height: "4px",
+                        backgroundColor: "rgb(59, 130, 246)",
+                        borderRadius: "50%",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
             </div>
           </div>
