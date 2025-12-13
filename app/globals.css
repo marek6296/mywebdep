@@ -357,6 +357,19 @@
     }
   }
   
+  /* Zabezpečenie viditeľnosti textu na svetlom pozadí */
+  .hero-title-main {
+    color: var(--primary) !important;
+    -webkit-text-fill-color: var(--primary) !important;
+  }
+  
+  .dark .hero-title-main {
+    background-image: linear-gradient(to right, var(--primary), var(--primary), var(--primary)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+  
   /* Zabránenie layout shift */
   * {
     box-sizing: border-box;

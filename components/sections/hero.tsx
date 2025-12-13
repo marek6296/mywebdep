@@ -118,6 +118,10 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
+                    backgroundImage: "linear-gradient(to right, var(--primary), var(--primary), var(--primary))",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
