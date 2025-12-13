@@ -309,9 +309,9 @@
     scroll-padding-top: 80px; /* Offset pre fixed navbar */
   }
   
-  /* Scroll restoration - začína vždy hore */
+  /* Scroll restoration - zachováva pozíciu pri refreshi */
   html {
-    scroll-restoration: manual;
+    scroll-restoration: auto;
   }
   
   /* Hardware acceleration for animations */
