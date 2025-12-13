@@ -249,6 +249,7 @@ export function Hero() {
               paddingTop: "0",
               paddingLeft: "0",
               paddingRight: "0",
+              paddingBottom: "80px",
               boxSizing: "border-box",
               position: "relative",
             }}
@@ -350,59 +351,60 @@ export function Hero() {
                 </Button>
               </div>
             </TextReveal>
+            
+            {/* Scroll Indicator - fixný hneď pod Kontakt */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "0",
+                left: "50%",
+                marginLeft: "-12px",
+                zIndex: 30,
+                width: "24px",
+                height: "40px",
+                pointerEvents: "none",
+                boxSizing: "border-box",
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ 
+                  opacity: 1,
+                }}
+                transition={{ 
+                  opacity: { duration: 0.6, delay: 1 },
+                }}
+                style={{
+                  width: "24px",
+                  height: "40px",
+                  border: "2px solid rgba(59, 130, 246, 0.5)",
+                  borderRadius: "9999px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  paddingTop: "8px",
+                  boxSizing: "border-box",
+                  position: "relative",
+                }}
+              >
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    width: "6px",
+                    height: "6px",
+                    backgroundColor: "rgb(59, 130, 246)",
+                    borderRadius: "9999px",
+                    boxSizing: "border-box",
+                    position: "relative",
+                  }}
+                />
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - úplne fixný */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: "40px",
-          left: "50%",
-          marginLeft: "-12px",
-          zIndex: 30,
-          width: "24px",
-          height: "40px",
-          pointerEvents: "none",
-          boxSizing: "border-box",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: 1,
-          }}
-          transition={{ 
-            opacity: { duration: 0.6, delay: 1 },
-          }}
-          style={{
-            width: "24px",
-            height: "40px",
-            border: "2px solid rgba(59, 130, 246, 0.5)",
-            borderRadius: "9999px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            paddingTop: "8px",
-            boxSizing: "border-box",
-            position: "relative",
-          }}
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{
-              width: "6px",
-              height: "6px",
-              backgroundColor: "rgb(59, 130, 246)",
-              borderRadius: "9999px",
-              boxSizing: "border-box",
-              position: "relative",
-            }}
-          />
-        </motion.div>
-      </div>
     </section>
   )
 }
