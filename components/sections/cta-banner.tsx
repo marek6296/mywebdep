@@ -50,11 +50,14 @@ export function CTABanner() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-primary/5 border border-primary/20 p-12 text-center"
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/3 border border-primary/10 p-12 text-center"
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+          }}
           whileHover={{ scale: 1.02 }}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-animated opacity-50"
+            className="absolute inset-0 bg-gradient-animated opacity-20"
             animate={{
               backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
             }}
