@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { FloatingElements } from "@/components/floating-elements"
 import { TextReveal } from "@/components/text-reveal"
 
@@ -25,17 +25,18 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden" style={{ minHeight: "100vh", height: "100vh", width: "100vw", position: "relative" }}>
+    <section ref={sectionRef} style={{ position: "relative", width: "100%", height: "100vh", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-animated noise-overlay" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, width: "100%", height: "100%" }} />
+      <div className="absolute inset-0 bg-gradient-animated noise-overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }} />
       
       {/* Floating Elements */}
       <FloatingElements />
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 text-center flex flex-col justify-center items-center"
                 style={{ 
+                  position: "relative",
+                  zIndex: 20,
                   opacity,
                   willChange: "opacity, transform",
                   transform: "translate3d(0, 0, 0)",
@@ -43,18 +44,23 @@ export function Hero() {
                   width: "100%",
                   maxWidth: "1200px",
                   height: "100vh",
-                  padding: "80px 16px 100px 16px",
+                  padding: "80px 20px 100px 20px",
                   margin: "0 auto",
                   boxSizing: "border-box",
                   overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
                 }}
               >
-        <div className="flex flex-col items-center justify-center" style={{ width: "100%", maxWidth: "900px", gap: "24px", boxSizing: "border-box" }}>
+        <div style={{ width: "100%", maxWidth: "900px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "24px", boxSizing: "border-box" }}>
           <TextReveal>
             <motion.h1
-              className="font-bold leading-tight text-center"
               style={{ 
-                fontSize: "clamp(1.75rem, 5vw, 4rem)",
+                fontSize: "3.5rem",
+                fontWeight: "bold",
                 width: "100%",
                 maxWidth: "100%",
                 margin: "0 auto",
@@ -63,6 +69,7 @@ export function Hero() {
                 overflowWrap: "break-word",
                 boxSizing: "border-box",
                 padding: "0 8px",
+                textAlign: "center",
               }}
             >
               <motion.span 
@@ -102,9 +109,9 @@ export function Hero() {
 
           <TextReveal delay={0.2}>
             <motion.p
-              className="text-foreground/90 leading-relaxed text-center"
+              className="text-foreground/90"
               style={{ 
-                fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
+                fontSize: "1rem",
                 width: "100%",
                 maxWidth: "700px",
                 margin: "0 auto",
@@ -113,6 +120,7 @@ export function Hero() {
                 overflowWrap: "break-word",
                 boxSizing: "border-box",
                 padding: "0 8px",
+                textAlign: "center",
               }}
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -121,14 +129,18 @@ export function Hero() {
 
           <TextReveal delay={0.3}>
             <motion.div 
-              className="text-foreground/90 flex flex-wrap gap-2 justify-center"
+              className="text-foreground/90"
               style={{ 
-                fontSize: "clamp(0.75rem, 1.5vw, 0.95rem)",
+                fontSize: "0.875rem",
                 width: "100%",
                 maxWidth: "100%",
                 margin: "0 auto",
                 boxSizing: "border-box",
                 padding: "0 8px",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "8px",
+                justifyContent: "center",
               }}
               initial="hidden"
               whileInView="visible"
@@ -163,21 +175,25 @@ export function Hero() {
 
           <TextReveal delay={0.5}>
             <motion.div
-              className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center"
               style={{ 
                 width: "100%", 
                 maxWidth: "550px",
                 margin: "0 auto",
                 paddingTop: "16px",
                 boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "row",
+                gap: "16px",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "100%", maxWidth: "250px", boxSizing: "border-box" }}
+                style={{ width: "auto", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild size="lg" className="text-base px-6 py-5 w-full group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", boxSizing: "border-box" }}>
+                <Button asChild size="lg" className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", width: "auto", padding: "20px 24px", boxSizing: "border-box" }}>
                   <Link href="/obchod">
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -198,9 +214,9 @@ export function Hero() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "100%", maxWidth: "250px", boxSizing: "border-box" }}
+                style={{ width: "auto", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild variant="outline" size="lg" className="text-base px-6 py-5 w-full group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", boxSizing: "border-box" }}>
+                <Button asChild variant="outline" size="lg" className="group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", width: "auto", padding: "20px 24px", boxSizing: "border-box" }}>
                   <Link href="/contact">
                     Kontakt
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -223,6 +239,7 @@ export function Hero() {
           width: "24px",
           height: "40px",
           pointerEvents: "none",
+          marginLeft: "-12px",
         }}
       >
         <motion.div
