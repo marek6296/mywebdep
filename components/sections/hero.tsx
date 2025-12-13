@@ -25,9 +25,9 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", width: "100%", height: "100vh", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-animated noise-overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }} />
+    <section ref={sectionRef} style={{ position: "relative", width: "100vw", height: "100vh", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", margin: 0, padding: 0 }}>
+      {/* Animated Background - Fixné */}
+      <div className="bg-gradient-animated noise-overlay" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 0, margin: 0, padding: 0 }} />
       
       {/* Floating Elements */}
       <FloatingElements />
@@ -41,7 +41,7 @@ export function Hero() {
                   willChange: "opacity, transform",
                   transform: "translate3d(0, 0, 0)",
                   backfaceVisibility: "hidden",
-                  width: "100%",
+                  width: "1200px",
                   maxWidth: "1200px",
                   height: "100vh",
                   padding: "80px 20px 100px 20px",
@@ -55,20 +55,20 @@ export function Hero() {
                   textAlign: "center",
                 }}
               >
-        <div style={{ width: "100%", maxWidth: "900px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "24px", boxSizing: "border-box" }}>
+        <div style={{ width: "900px", maxWidth: "900px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "24px", boxSizing: "border-box" }}>
           <TextReveal>
             <motion.h1
               style={{ 
                 fontSize: "3.5rem",
                 fontWeight: "bold",
-                width: "100%",
-                maxWidth: "100%",
+                width: "900px",
+                maxWidth: "900px",
                 margin: "0 auto",
                 lineHeight: "1.1",
                 wordWrap: "break-word",
                 overflowWrap: "break-word",
                 boxSizing: "border-box",
-                padding: "0 8px",
+                padding: "0",
                 textAlign: "center",
               }}
             >
@@ -112,14 +112,14 @@ export function Hero() {
               className="text-foreground/90"
               style={{ 
                 fontSize: "1rem",
-                width: "100%",
+                width: "700px",
                 maxWidth: "700px",
                 margin: "0 auto",
                 lineHeight: "1.6",
                 wordWrap: "break-word",
                 overflowWrap: "break-word",
                 boxSizing: "border-box",
-                padding: "0 8px",
+                padding: "0",
                 textAlign: "center",
               }}
             >
@@ -132,11 +132,11 @@ export function Hero() {
               className="text-foreground/90"
               style={{ 
                 fontSize: "0.875rem",
-                width: "100%",
-                maxWidth: "100%",
+                width: "900px",
+                maxWidth: "900px",
                 margin: "0 auto",
                 boxSizing: "border-box",
-                padding: "0 8px",
+                padding: "0",
                 display: "flex",
                 flexWrap: "wrap",
                 gap: "8px",
@@ -176,7 +176,7 @@ export function Hero() {
           <TextReveal delay={0.5}>
             <motion.div
               style={{ 
-                width: "100%", 
+                width: "550px", 
                 maxWidth: "550px",
                 margin: "0 auto",
                 paddingTop: "16px",
@@ -191,9 +191,9 @@ export function Hero() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "auto", maxWidth: "250px", boxSizing: "border-box" }}
+                style={{ width: "250px", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild size="lg" className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", width: "auto", padding: "20px 24px", boxSizing: "border-box" }}>
+                <Button asChild size="lg" className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "0.95rem", width: "250px", padding: "20px 24px", boxSizing: "border-box" }}>
                   <Link href="/obchod">
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -214,9 +214,9 @@ export function Hero() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "auto", maxWidth: "250px", boxSizing: "border-box" }}
+                style={{ width: "250px", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild variant="outline" size="lg" className="group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", width: "auto", padding: "20px 24px", boxSizing: "border-box" }}>
+                <Button asChild variant="outline" size="lg" className="group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "0.95rem", width: "250px", padding: "20px 24px", boxSizing: "border-box" }}>
                   <Link href="/contact">
                     Kontakt
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -228,10 +228,10 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Fixný */}
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           bottom: "40px",
           left: "50%",
           transform: "translateX(-50%)",
