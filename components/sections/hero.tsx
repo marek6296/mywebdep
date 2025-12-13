@@ -16,7 +16,6 @@ export function Hero() {
     offset: ["start start", "end start"],
   })
 
-  // Optimized transforms with clamping for production
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], {
     clamp: true,
   })
@@ -26,65 +25,71 @@ export function Hero() {
       ref={sectionRef} 
       style={{ 
         position: "relative",
-        minHeight: "100vh",
+        width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         paddingTop: "64px",
         paddingBottom: "80px",
-        width: "100%",
+        boxSizing: "border-box",
       }}
     >
       {/* Animated Background - len dekorácia */}
       <div 
         className="absolute inset-0 bg-gradient-animated noise-overlay" 
         style={{ 
-          zIndex: 0,
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
+          zIndex: 0,
         }} 
       />
       
       {/* Floating Elements - len dekorácia */}
       <FloatingElements />
 
-      {/* Main Content Container - úplne fixný bez percent */}
+      {/* Main Content - úplne fixný layout */}
       <div 
         style={{ 
           position: "relative",
           zIndex: 20,
-          width: "900px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingLeft: "0",
-          paddingRight: "0",
+          width: "1200px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 20px",
           boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <motion.div
           style={{ 
             opacity,
             willChange: "opacity",
-            transform: "translate3d(0, 0, 0)",
-            backfaceVisibility: "hidden",
-            width: "900px",
-            marginLeft: "auto",
-            marginRight: "auto",
+            width: "100%",
+            maxWidth: "900px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {/* Headline - úplne fixné */}
+          {/* Headline - fixný */}
           <div 
             style={{ 
+              width: "900px",
+              maxWidth: "900px",
               textAlign: "center",
               marginBottom: "32px",
-              width: "900px",
-              marginLeft: "auto",
-              marginRight: "auto",
+              boxSizing: "border-box",
             }}
           >
             <TextReveal>
@@ -95,8 +100,10 @@ export function Hero() {
                   lineHeight: "1.15",
                   letterSpacing: "-0.02em",
                   width: "900px",
-                  margin: "0 auto 24px auto",
+                  maxWidth: "900px",
+                  margin: "0 0 24px 0",
                   padding: 0,
+                  boxSizing: "border-box",
                 }}
               >
                 <span 
@@ -109,6 +116,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "2.5rem",
                     width: "900px",
+                    boxSizing: "border-box",
                   }}
                 >
                   TRANSFORMUJTE
@@ -123,6 +131,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "2.5rem",
                     width: "900px",
+                    boxSizing: "border-box",
                   }}
                 >
                   podníkanie digitálnym
@@ -133,14 +142,14 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Description - úplne fixné */}
+          {/* Description - fixný */}
           <div 
             style={{ 
+              width: "700px",
+              maxWidth: "700px",
               textAlign: "center",
               marginBottom: "24px",
-              width: "700px",
-              marginLeft: "auto",
-              marginRight: "auto",
+              boxSizing: "border-box",
             }}
           >
             <TextReveal delay={0.2}>
@@ -151,8 +160,10 @@ export function Hero() {
                   lineHeight: "1.6",
                   letterSpacing: "0",
                   width: "700px",
-                  margin: "0 auto",
+                  maxWidth: "700px",
+                  margin: "0",
                   padding: 0,
+                  boxSizing: "border-box",
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -160,14 +171,14 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Tech Stack - úplne fixné */}
+          {/* Tech Stack - fixný */}
           <div 
             style={{
+              width: "600px",
+              maxWidth: "600px",
               textAlign: "center",
               marginBottom: "32px",
-              width: "600px",
-              marginLeft: "auto",
-              marginRight: "auto",
+              boxSizing: "border-box",
             }}
           >
             <TextReveal delay={0.3}>
@@ -178,13 +189,15 @@ export function Hero() {
                   lineHeight: "1.5",
                   letterSpacing: "0",
                   width: "600px",
-                  margin: "0 auto",
+                  maxWidth: "600px",
+                  margin: "0",
                   display: "flex",
                   flexWrap: "wrap",
                   gap: "8px",
                   justifyContent: "center",
                   alignItems: "center",
                   padding: 0,
+                  boxSizing: "border-box",
                 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
@@ -194,6 +207,7 @@ export function Hero() {
                       fontWeight: "500",
                       lineHeight: "1.5",
                       fontSize: "0.875rem",
+                      boxSizing: "border-box",
                     }}
                   >
                     {tech}
@@ -204,13 +218,13 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* CTA Buttons - úplne fixné */}
+          {/* CTA Buttons - fixný */}
           <div 
             style={{
-              textAlign: "center",
               width: "550px",
-              marginLeft: "auto",
-              marginRight: "auto",
+              maxWidth: "550px",
+              textAlign: "center",
+              boxSizing: "border-box",
             }}
           >
             <TextReveal delay={0.5}>
@@ -222,7 +236,9 @@ export function Hero() {
                   justifyContent: "center",
                   alignItems: "center",
                   width: "550px",
-                  margin: "0 auto",
+                  maxWidth: "550px",
+                  margin: "0",
+                  boxSizing: "border-box",
                 }}
               >
                 <Button 
@@ -232,6 +248,8 @@ export function Hero() {
                   style={{
                     height: "56px",
                     width: "250px",
+                    minWidth: "250px",
+                    maxWidth: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
@@ -240,7 +258,7 @@ export function Hero() {
                   }}
                 >
                   <Link href="/obchod">
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
                       Prehľadať obchod
                       <ArrowRight 
                         style={{ 
@@ -262,6 +280,8 @@ export function Hero() {
                   style={{
                     height: "56px",
                     width: "250px",
+                    minWidth: "250px",
+                    maxWidth: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
@@ -270,7 +290,7 @@ export function Hero() {
                   }}
                 >
                   <Link href="/contact">
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
                       Kontakt
                       <ArrowRight 
                         style={{ 
@@ -290,7 +310,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - fixný na spodku */}
+      {/* Scroll Indicator - fixný */}
       <div
         style={{
           position: "absolute",
@@ -301,6 +321,7 @@ export function Hero() {
           width: "24px",
           height: "40px",
           pointerEvents: "none",
+          boxSizing: "border-box",
         }}
       >
         <motion.div
@@ -320,6 +341,7 @@ export function Hero() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingTop: "8px",
+            boxSizing: "border-box",
           }}
         >
           <motion.div
@@ -330,6 +352,7 @@ export function Hero() {
               height: "6px",
               backgroundColor: "rgb(59, 130, 246)",
               borderRadius: "9999px",
+              boxSizing: "border-box",
             }}
           />
         </motion.div>

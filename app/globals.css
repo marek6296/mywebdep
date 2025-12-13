@@ -301,6 +301,15 @@
     }
   }
   
+  /* Hero sekcia - úplne fixný layout, žiadne zmeny */
+  section[style*="height: 100vh"] {
+    contain: layout style paint;
+  }
+  
+  section[style*="height: 100vh"] * {
+    box-sizing: border-box;
+  }
+  
   /* Zabránenie layout shift */
   * {
     box-sizing: border-box;
