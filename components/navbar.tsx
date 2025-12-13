@@ -27,9 +27,18 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b border-border/40" style={{ backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav 
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b border-border/40" 
+      style={{ 
+        backdropFilter: "blur(8px)", 
+        WebkitBackdropFilter: "blur(8px)",
+        height: "64px",
+        minHeight: "64px",
+        maxHeight: "64px"
+      }}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

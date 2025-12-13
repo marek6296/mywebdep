@@ -262,9 +262,12 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+    box-sizing: border-box;
   }
 
-  /* Fixné breakpointy - len 3 hlavné */
+  /* Fixné breakpointy - konzistentné pre celú stránku */
+  /* Mobile: default (do 767px) */
+  /* Tablet: 768px - 1023px */
   @media (min-width: 768px) {
     .container {
       padding-left: 1.5rem;
@@ -272,6 +275,7 @@
     }
   }
 
+  /* Desktop: 1024px+ */
   @media (min-width: 1024px) {
     .container {
       padding-left: 2rem;

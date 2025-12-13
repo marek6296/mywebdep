@@ -12,13 +12,12 @@ export function FloatingElements() {
 
   return (
     <>
-      {/* Floating shapes - optimalizované pre produkciu */}
+      {/* Floating shapes - len dekorácia, absolute positioned */}
       <motion.div
-        className="bg-primary/5 rounded-full blur-3xl"
+        className="absolute bg-primary/5 rounded-full blur-3xl pointer-events-none"
         style={{ 
-          position: "fixed",
-          top: "80px",
-          left: "40px",
+          top: "10%",
+          left: "5%",
           width: "288px",
           height: "288px",
           zIndex: 1,
@@ -38,11 +37,10 @@ export function FloatingElements() {
         }}
       />
       <motion.div
-        className="bg-primary/10 rounded-full blur-3xl"
+        className="absolute bg-primary/10 rounded-full blur-3xl pointer-events-none"
         style={{ 
-          position: "fixed",
-          bottom: "80px",
-          right: "40px",
+          bottom: "10%",
+          right: "5%",
           width: "384px",
           height: "384px",
           zIndex: 1,
@@ -62,11 +60,10 @@ export function FloatingElements() {
         }}
       />
       <motion.div
-        className="bg-primary/5 rounded-full blur-3xl"
+        className="absolute bg-primary/5 rounded-full blur-3xl pointer-events-none"
         style={{ 
-          position: "fixed",
-          top: "400px",
-          right: "300px",
+          top: "50%",
+          right: "10%",
           width: "256px",
           height: "256px",
           zIndex: 1,
