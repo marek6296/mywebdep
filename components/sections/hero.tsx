@@ -166,7 +166,7 @@ export function Hero() {
                     boxSizing: "border-box",
                   }}
                 >
-                  podníkanie digitálnym
+                  podnikanie digitálnym
                   <br />
                   riešením
                 </span>
