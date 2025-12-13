@@ -422,6 +422,9 @@
   .cta-title-text {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
   }
   
   .dark .cta-title-text {

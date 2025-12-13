@@ -92,7 +92,7 @@ export function CTABanner() {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 break-words cta-title"
             >
               <motion.span
-                className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent inline-block cta-title-text"
+                className="cta-title-text"
                 animate={{
                   backgroundPosition: ["0%", "100%", "0%"],
                 }}
@@ -103,6 +103,7 @@ export function CTABanner() {
                 }}
                 style={{
                   backgroundSize: "200%",
+                  color: "#000000",
                 }}
               >
                 Pripravení začať váš projekt?
@@ -117,7 +118,10 @@ export function CTABanner() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 cta-description"
+              className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 cta-description"
+              style={{
+                color: "#333333",
+              }}
             >
               Kontaktujte ma ešte dnes a získajte bezplatnú konzultáciu o vašom projekte.
             </motion.p>
