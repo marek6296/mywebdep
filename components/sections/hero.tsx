@@ -66,7 +66,7 @@ export function Hero() {
                 }}
               >
                 <span 
-                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block"
+                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block text-4xl md:text-5xl lg:text-6xl"
                   style={{
                     backgroundSize: "200%",
                     fontWeight: "700",
