@@ -313,11 +313,11 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - fixný */}
+      {/* Scroll Indicator - úplne fixný */}
       <div
         style={{
-          position: "absolute",
-          bottom: "32px",
+          position: "fixed",
+          bottom: "40px",
           left: "50%",
           marginLeft: "-12px",
           zIndex: 30,
@@ -345,6 +345,7 @@ export function Hero() {
             alignItems: "flex-start",
             paddingTop: "8px",
             boxSizing: "border-box",
+            position: "relative",
           }}
         >
           <motion.div
@@ -356,6 +357,7 @@ export function Hero() {
               backgroundColor: "rgb(59, 130, 246)",
               borderRadius: "9999px",
               boxSizing: "border-box",
+              position: "relative",
             }}
           />
         </motion.div>
