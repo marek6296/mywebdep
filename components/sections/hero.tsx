@@ -25,9 +25,9 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", width: "100vw", height: "100vh", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", margin: 0, padding: 0 }}>
+    <section ref={sectionRef} style={{ position: "relative", width: "100%", height: "100vh", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", margin: 0, padding: 0 }}>
       {/* Animated Background - Fixné */}
-      <div className="bg-gradient-animated noise-overlay" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 0, margin: 0, padding: 0 }} />
+      <div className="bg-gradient-animated noise-overlay" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, margin: 0, padding: 0 }} />
       
       {/* Floating Elements */}
       <FloatingElements />
@@ -35,7 +35,7 @@ export function Hero() {
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
                 style={{ 
-                  position: "relative",
+                  position: "absolute",
                   zIndex: 20,
                   opacity,
                   willChange: "opacity, transform",
@@ -45,7 +45,9 @@ export function Hero() {
                   maxWidth: "1200px",
                   height: "100vh",
                   padding: "80px 20px 100px 20px",
-                  margin: "0 auto",
+                  top: "0",
+                  left: "50%",
+                  marginLeft: "-600px",
                   boxSizing: "border-box",
                   overflow: "hidden",
                   display: "flex",
@@ -63,7 +65,7 @@ export function Hero() {
                 fontWeight: "bold",
                 width: "900px",
                 maxWidth: "900px",
-                margin: "0 auto",
+                margin: "0",
                 lineHeight: "1.1",
                 wordWrap: "break-word",
                 overflowWrap: "break-word",
@@ -114,7 +116,7 @@ export function Hero() {
                 fontSize: "1rem",
                 width: "700px",
                 maxWidth: "700px",
-                margin: "0 auto",
+                margin: "0",
                 lineHeight: "1.6",
                 wordWrap: "break-word",
                 overflowWrap: "break-word",
@@ -134,7 +136,7 @@ export function Hero() {
                 fontSize: "0.875rem",
                 width: "900px",
                 maxWidth: "900px",
-                margin: "0 auto",
+                margin: "0",
                 boxSizing: "border-box",
                 padding: "0",
                 display: "flex",
@@ -178,7 +180,7 @@ export function Hero() {
               style={{ 
                 width: "550px", 
                 maxWidth: "550px",
-                margin: "0 auto",
+                margin: "0",
                 paddingTop: "16px",
                 boxSizing: "border-box",
                 display: "flex",
@@ -234,12 +236,11 @@ export function Hero() {
           position: "fixed",
           bottom: "40px",
           left: "50%",
-          transform: "translateX(-50%)",
+          marginLeft: "-12px",
           zIndex: 30,
           width: "24px",
           height: "40px",
           pointerEvents: "none",
-          marginLeft: "-12px",
         }}
       >
         <motion.div

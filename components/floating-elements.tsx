@@ -65,8 +65,8 @@ export function FloatingElements() {
         className="bg-primary/5 rounded-full blur-3xl"
         style={{ 
           position: "fixed",
-          top: "50%",
-          right: "25%",
+          top: "400px",
+          right: "300px",
           width: "256px",
           height: "256px",
           zIndex: 1,
