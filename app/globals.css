@@ -394,6 +394,28 @@
     color: var(--foreground) !important;
   }
   
+  /* Scroll indicator - svetlý režim */
+  .scroll-indicator-box {
+    backgroundColor: rgba(0, 0, 0, 0.05) !important;
+    border: 2px solid rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .scroll-indicator-arrow {
+    border-right-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+  }
+  
+  /* Scroll indicator - tmavý režim */
+  .dark .scroll-indicator-box {
+    backgroundColor: rgba(59, 130, 246, 0.05) !important;
+    border: 2px solid rgba(59, 130, 246, 0.4) !important;
+  }
+  
+  .dark .scroll-indicator-arrow {
+    border-right-color: rgb(59, 130, 246) !important;
+    border-bottom-color: rgb(59, 130, 246) !important;
+  }
+  
   /* Zabránenie layout shift */
   * {
     box-sizing: border-box;
