@@ -143,11 +143,11 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - stabilné pozície */}
           <div className="text-center">
             <TextReveal delay={0.5}>
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto"
+                className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-lg mx-auto"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "0px", amount: 0.25 }}
@@ -160,12 +160,12 @@ export function Hero() {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto"
+                  className="w-full md:w-auto"
                 >
                   <Button 
                     asChild 
                     size="lg" 
-                    className="w-full sm:w-auto px-8 py-6 text-base group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full md:w-auto px-8 py-6 text-base group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     <Link href="/obchod">
                       <motion.span
@@ -187,13 +187,13 @@ export function Hero() {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto"
+                  className="w-full md:w-auto"
                 >
                   <Button 
                     asChild 
                     variant="outline" 
                     size="lg" 
-                    className="w-full sm:w-auto px-8 py-6 text-base group border-primary/50 bg-background/50 hover:bg-background/80"
+                    className="w-full md:w-auto px-8 py-6 text-base group border-primary/50 bg-background/50 hover:bg-background/80"
                   >
                     <Link href="/contact">
                       Kontakt

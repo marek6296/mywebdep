@@ -12,9 +12,9 @@ export function CTABanner() {
 
   return (
     <section ref={ref} className="py-24 bg-background relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Animated background elements - len dekorácia */}
       <motion.div
-        className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        className="absolute top-0 left-[20%] w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.2, 1],
           x: [0, 50, 0],
@@ -27,7 +27,7 @@ export function CTABanner() {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        className="absolute bottom-0 right-[20%] w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.3, 1],
           x: [0, -50, 0],
