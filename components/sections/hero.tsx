@@ -49,8 +49,8 @@ export function Hero() {
       />
       
       {/* Animated gradient overlay - presne ako v CTA banneri */}
-      <motion.div
-        className="absolute inset-0 hero-gradient-animated"
+      <div
+        className="absolute inset-0 bg-gradient-animated opacity-30"
         style={{
           position: "absolute",
           top: 0,
@@ -59,14 +59,6 @@ export function Hero() {
           bottom: 0,
           zIndex: 1,
           pointerEvents: "none",
-        }}
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "linear",
         }}
       />
       
