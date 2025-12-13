@@ -359,7 +359,7 @@
   
   /* Zabezpečenie viditeľnosti textu na svetlom pozadí */
   .hero-title-main {
-    color: oklch(0.2 0 0) !important;
+    color: #000000 !important;
   }
   
   .dark .hero-title-main {
@@ -371,7 +371,7 @@
   }
   
   .hero-title-sub {
-    color: oklch(0.2 0 0) !important;
+    color: #000000 !important;
   }
   
   .dark .hero-title-sub {
@@ -379,7 +379,7 @@
   }
   
   .hero-content-wrapper p {
-    color: oklch(0.3 0 0) !important;
+    color: #333333 !important;
   }
   
   .dark .hero-content-wrapper p {
@@ -387,7 +387,7 @@
   }
   
   .hero-tech-stack {
-    color: oklch(0.3 0 0) !important;
+    color: #333333 !important;
   }
   
   .dark .hero-tech-stack {

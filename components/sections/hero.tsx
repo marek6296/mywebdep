@@ -118,7 +118,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
-                    color: "oklch(0.2 0 0)",
+                    color: "#000000",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -135,7 +135,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
-                    color: "oklch(0.2 0 0)",
+                    color: "#000000",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -175,7 +175,7 @@ export function Hero() {
                   maxWidth: "100%",
                   margin: "0",
                   padding: 0,
-                  color: "oklch(0.3 0 0)",
+                  color: "#333333",
                   boxSizing: "border-box",
                   position: "relative",
                 }}
@@ -218,7 +218,7 @@ export function Hero() {
                               justifyContent: "center",
                               alignItems: "center",
                               padding: 0,
-                              color: "oklch(0.3 0 0)",
+                              color: "#333333",
                               boxSizing: "border-box",
                               position: "relative",
                             }}
