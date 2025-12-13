@@ -89,7 +89,7 @@ export function CTABanner() {
                 visible: { opacity: 1, scale: 1 },
               }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 break-words cta-title"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 sm:px-0 break-words cta-title"
             >
               <motion.span
                 className="cta-title-text"
@@ -118,9 +118,9 @@ export function CTABanner() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 cta-description"
+              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 cta-description"
               style={{
-                color: "#333333",
+                color: "#000000",
               }}
             >
               Kontaktujte ma ešte dnes a získajte bezplatnú konzultáciu o vašom projekte.
