@@ -25,9 +25,9 @@ export function Hero() {
   })
 
   return (
-    <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden" style={{ minHeight: "100vh", height: "100vh" }}>
+    <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden" style={{ minHeight: "100vh", height: "100vh", width: "100vw", position: "relative" }}>
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-animated noise-overlay" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }} />
+      <div className="absolute inset-0 bg-gradient-animated noise-overlay" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, width: "100%", height: "100%" }} />
       
       {/* Floating Elements */}
       <FloatingElements />
@@ -40,22 +40,29 @@ export function Hero() {
                   willChange: "opacity, transform",
                   transform: "translate3d(0, 0, 0)",
                   backfaceVisibility: "hidden",
-                  width: "90%",
+                  width: "100%",
                   maxWidth: "1200px",
                   height: "100vh",
-                  padding: "80px 20px 100px 20px",
+                  padding: "80px 16px 100px 16px",
                   margin: "0 auto",
+                  boxSizing: "border-box",
+                  overflow: "hidden",
                 }}
               >
-        <div className="flex flex-col items-center justify-center" style={{ width: "100%", maxWidth: "900px", gap: "32px" }}>
+        <div className="flex flex-col items-center justify-center" style={{ width: "100%", maxWidth: "900px", gap: "24px", boxSizing: "border-box" }}>
           <TextReveal>
             <motion.h1
               className="font-bold leading-tight text-center"
               style={{ 
-                fontSize: "clamp(2rem, 6vw, 4.5rem)",
+                fontSize: "clamp(1.75rem, 5vw, 4rem)",
                 width: "100%",
+                maxWidth: "100%",
                 margin: "0 auto",
                 lineHeight: "1.1",
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                padding: "0 8px",
               }}
             >
               <motion.span 
@@ -97,11 +104,15 @@ export function Hero() {
             <motion.p
               className="text-foreground/90 leading-relaxed text-center"
               style={{ 
-                fontSize: "clamp(0.95rem, 2.5vw, 1.25rem)",
+                fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
                 width: "100%",
                 maxWidth: "700px",
                 margin: "0 auto",
                 lineHeight: "1.6",
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                padding: "0 8px",
               }}
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -112,9 +123,12 @@ export function Hero() {
             <motion.div 
               className="text-foreground/90 flex flex-wrap gap-2 justify-center"
               style={{ 
-                fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+                fontSize: "clamp(0.75rem, 1.5vw, 0.95rem)",
                 width: "100%",
+                maxWidth: "100%",
                 margin: "0 auto",
+                boxSizing: "border-box",
+                padding: "0 8px",
               }}
               initial="hidden"
               whileInView="visible"
@@ -155,14 +169,15 @@ export function Hero() {
                 maxWidth: "550px",
                 margin: "0 auto",
                 paddingTop: "16px",
+                boxSizing: "border-box",
               }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "100%", maxWidth: "250px" }}
+                style={{ width: "100%", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild size="lg" className="text-base px-6 py-5 w-full group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "1rem", minWidth: "200px" }}>
+                <Button asChild size="lg" className="text-base px-6 py-5 w-full group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", boxSizing: "border-box" }}>
                   <Link href="/obchod">
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -183,9 +198,9 @@ export function Hero() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ width: "100%", maxWidth: "250px" }}
+                style={{ width: "100%", maxWidth: "250px", boxSizing: "border-box" }}
               >
-                <Button asChild variant="outline" size="lg" className="text-base px-6 py-5 w-full group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "1rem", minWidth: "200px" }}>
+                <Button asChild variant="outline" size="lg" className="text-base px-6 py-5 w-full group border-primary/50 bg-background/50 hover:bg-background/80" style={{ fontSize: "0.95rem", minWidth: "180px", maxWidth: "100%", boxSizing: "border-box" }}>
                   <Link href="/contact">
                     Kontakt
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -198,28 +213,28 @@ export function Hero() {
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "0px", amount: 0.25 }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-        transition={{ duration: 0.6, delay: 1 }}
+      <div
         style={{
-          position: "fixed",
+          position: "absolute",
           bottom: "40px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 30,
           width: "24px",
           height: "40px",
+          pointerEvents: "none",
         }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          initial={{ opacity: 0 }}
+          animate={{ 
+            opacity: 1,
+            y: [0, 10, 0] 
+          }}
+          transition={{ 
+            opacity: { duration: 0.6, delay: 1 },
+            y: { duration: 2, repeat: Infinity }
+          }}
           style={{
             width: "24px",
             height: "40px",
@@ -229,6 +244,7 @@ export function Hero() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingTop: "8px",
+            position: "relative",
           }}
         >
           <motion.div
@@ -239,10 +255,11 @@ export function Hero() {
               height: "6px",
               backgroundColor: "rgb(59, 130, 246)",
               borderRadius: "9999px",
+              position: "relative",
             }}
           />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
