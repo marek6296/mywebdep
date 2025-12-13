@@ -40,12 +40,15 @@ export function Hero() {
                   willChange: "opacity, transform",
                   transform: "translate3d(0, 0, 0)",
                   backfaceVisibility: "hidden",
+                  minWidth: "320px",
+                  width: "100%",
                 }}
               >
-        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-6" style={{ minWidth: "320px", maxWidth: "1280px" }}>
           <TextReveal>
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-center"
+              style={{ minWidth: "280px", width: "100%" }}
             >
               <motion.span 
                 className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent inline-block break-words"
@@ -85,6 +88,7 @@ export function Hero() {
           <TextReveal delay={0.2}>
             <motion.p
               className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-center"
+              style={{ minWidth: "280px", width: "100%" }}
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
             </motion.p>
@@ -126,6 +130,7 @@ export function Hero() {
           <TextReveal delay={0.5}>
             <motion.div
               className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center pt-4"
+              style={{ minWidth: "280px", width: "100%", maxWidth: "600px" }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}

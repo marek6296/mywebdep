@@ -94,7 +94,7 @@ export function FeaturedProducts() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" style={{ minWidth: "320px", width: "100%" }}>
           {products.slice(0, 2).map((product, index) => (
             <motion.div
               key={product.id}
