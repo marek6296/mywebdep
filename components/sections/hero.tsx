@@ -28,12 +28,9 @@ export function Hero() {
         width: "100%",
         height: "100vh",
         minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         overflow: "hidden",
-        paddingTop: "120px",
-        paddingBottom: "80px",
+        paddingTop: "0",
+        paddingBottom: "0",
         boxSizing: "border-box",
       }}
     >
@@ -53,20 +50,22 @@ export function Hero() {
       {/* Floating Elements - len dekorácia */}
       <FloatingElements />
 
-      {/* Main Content - úplne fixný layout */}
+      {/* Main Content - úplne fixný layout s fixnou pozíciou */}
       <div 
         style={{ 
-          position: "relative",
+          position: "absolute",
+          top: "120px",
+          left: "50%",
+          transform: "translateX(-50%)",
           zIndex: 20,
           width: "1200px",
           maxWidth: "1200px",
-          margin: "0 auto",
           padding: "0 20px",
           boxSizing: "border-box",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
         }}
       >
         <motion.div
@@ -79,7 +78,9 @@ export function Hero() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
+            marginTop: "0",
+            paddingTop: "0",
           }}
         >
           {/* Headline - fixný */}
