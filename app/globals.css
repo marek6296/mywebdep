@@ -161,11 +161,11 @@
   .bg-gradient-animated {
     background: linear-gradient(
       -45deg,
-      oklch(0.08 0.02 250),
-      oklch(0.1 0.02 280),
-      oklch(0.08 0.02 220),
-      oklch(0.09 0.02 260),
-      oklch(0.08 0.02 250)
+      oklch(0.12 0.03 250),
+      oklch(0.15 0.03 280),
+      oklch(0.12 0.03 220),
+      oklch(0.14 0.03 260),
+      oklch(0.12 0.03 250)
     );
     background-size: 400% 400%;
     /* CSS animácia ako fallback */
@@ -176,11 +176,11 @@
   :root:not(.dark) .bg-gradient-animated {
     background: linear-gradient(
       -45deg,
-      #0f172a,
-      #1e3a8a,
       #1e293b,
       #1e40af,
-      #0f172a
+      #1e3a8a,
+      #2563eb,
+      #1e293b
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
