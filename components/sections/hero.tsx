@@ -249,7 +249,7 @@ export function Hero() {
               paddingTop: "0",
               paddingLeft: "0",
               paddingRight: "0",
-              paddingBottom: "60px",
+              paddingBottom: "100px",
               boxSizing: "border-box",
               position: "relative",
             }}
