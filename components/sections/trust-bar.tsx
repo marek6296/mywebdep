@@ -43,7 +43,7 @@ export function TrustBar() {
   return (
     <section ref={ref} className="py-16 border-y border-border/40 bg-card/50 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8" style={{ minWidth: "320px", width: "100%" }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8" style={{ width: "100%", maxWidth: "100%" }}>
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (

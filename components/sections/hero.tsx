@@ -34,21 +34,21 @@ export function Hero() {
 
               {/* Content with Parallax - optimalizované pre produkciu */}
               <motion.div
-                className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full py-8 sm:py-12 pb-16 sm:pb-20"
+                className="relative z-20 container mx-auto px-4 md:px-6 lg:px-8 text-center flex flex-col justify-center h-full py-12 pb-20"
                 style={{ 
                   opacity,
                   willChange: "opacity, transform",
                   transform: "translate3d(0, 0, 0)",
                   backfaceVisibility: "hidden",
-                  minWidth: "320px",
                   width: "100%",
+                  maxWidth: "1280px",
                 }}
               >
-        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-6" style={{ minWidth: "320px", maxWidth: "1280px" }}>
+        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center space-y-6" style={{ width: "100%", maxWidth: "1280px" }}>
           <TextReveal>
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-center"
-              style={{ minWidth: "280px", width: "100%" }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-center"
+              style={{ fontSize: "clamp(1.875rem, 5vw, 4.5rem)", width: "100%" }}
             >
               <motion.span 
                 className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent inline-block break-words"
@@ -87,8 +87,8 @@ export function Hero() {
 
           <TextReveal delay={0.2}>
             <motion.p
-              className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-center"
-              style={{ minWidth: "280px", width: "100%" }}
+              className="text-base md:text-lg lg:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed text-center"
+              style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", width: "100%" }}
             >
               Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
             </motion.p>
@@ -96,7 +96,7 @@ export function Hero() {
 
           <TextReveal delay={0.3}>
             <motion.div 
-              className="text-foreground/90 flex flex-wrap gap-2 justify-center text-xs sm:text-sm"
+              className="text-foreground/90 flex flex-wrap gap-2 justify-center text-sm md:text-base"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "0px", amount: 0.25 }}
@@ -129,15 +129,15 @@ export function Hero() {
 
           <TextReveal delay={0.5}>
             <motion.div
-              className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center pt-4"
-              style={{ minWidth: "280px", width: "100%", maxWidth: "600px" }}
+              className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center pt-4"
+              style={{ width: "100%", maxWidth: "600px" }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto"
+                className="w-full md:w-auto"
               >
-                <Button asChild size="lg" className="text-sm sm:text-base px-5 sm:px-6 py-4 sm:py-5 w-full sm:w-auto group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button asChild size="lg" className="text-base px-6 py-5 w-full md:w-auto group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Link href="/obchod">
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -160,7 +160,7 @@ export function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto"
               >
-                <Button asChild variant="outline" size="lg" className="text-sm sm:text-base px-5 sm:px-6 py-4 sm:py-5 w-full sm:w-auto group border-primary/50 bg-background/50 hover:bg-background/80">
+                <Button asChild variant="outline" size="lg" className="text-base px-6 py-5 w-full md:w-auto group border-primary/50 bg-background/50 hover:bg-background/80">
                   <Link href="/contact">
                     Kontakt
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

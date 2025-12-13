@@ -61,7 +61,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ minWidth: "320px", width: "100%" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ width: "100%", maxWidth: "100%" }}>
           {services.map((service, index) => {
             const Icon = service.icon
             return (
