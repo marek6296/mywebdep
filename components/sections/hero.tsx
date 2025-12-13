@@ -183,43 +183,43 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Tech Stack - fixný */}
-          <div 
-            style={{
-              width: "100%",
-              maxWidth: "600px",
-              textAlign: "center",
-              marginTop: "0",
-              marginBottom: "32px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              paddingTop: "0",
-              paddingLeft: "0",
-              paddingRight: "0",
-              boxSizing: "border-box",
-              position: "relative",
-            }}
-          >
-            <TextReveal delay={0.3}>
-              <div 
-                className="text-foreground/90"
-                style={{ 
-                  fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
-                  lineHeight: "1.5",
-                  letterSpacing: "0",
-                  width: "100%",
-                  maxWidth: "100%",
-                  margin: "0",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 0,
-                  boxSizing: "border-box",
-                  position: "relative",
-                }}
-              >
+                      {/* Tech Stack - fixný */}
+                      <div 
+                        style={{
+                          width: "100%",
+                          maxWidth: "600px",
+                          textAlign: "center",
+                          marginTop: "0",
+                          marginBottom: "32px",
+                          marginLeft: "auto",
+                          marginRight: "auto",
+                          paddingTop: "0",
+                          paddingLeft: "0",
+                          paddingRight: "0",
+                          boxSizing: "border-box",
+                          position: "relative",
+                        }}
+                      >
+                        <TextReveal delay={0.3}>
+                          <div 
+                            className="text-foreground/90 hero-tech-stack"
+                            style={{ 
+                              fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
+                              lineHeight: "1.5",
+                              letterSpacing: "0",
+                              width: "100%",
+                              maxWidth: "100%",
+                              margin: "0",
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              padding: 0,
+                              boxSizing: "border-box",
+                              position: "relative",
+                            }}
+                          >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
                   <span
                     key={tech}
