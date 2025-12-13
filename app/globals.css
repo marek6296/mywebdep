@@ -169,7 +169,7 @@
     );
     background-size: 400% 400%;
     /* CSS animácia ako fallback */
-    animation: gradient 10s ease infinite;
+    animation: gradient 8s ease infinite;
   }
   
   /* Svetlý režim - čierna a tmavo modrá */
@@ -183,7 +183,7 @@
       #000000
     );
     background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    animation: gradient 8s ease infinite;
   }
 
   @keyframes gradient {
