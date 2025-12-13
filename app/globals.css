@@ -254,6 +254,38 @@
     perspective: 1000px;
   }
   
+  /* Stabilizácia layoutu pri resize */
+  .container {
+    min-width: 320px;
+    width: 100%;
+  }
+
+  /* Fixné breakpointy pre stabilnejší layout */
+  @media (min-width: 640px) {
+    .container {
+      min-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      min-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      min-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      min-width: 1280px;
+      max-width: 1280px;
+    }
+  }
+
   /* Optimize scrolling */
   * {
     -webkit-overflow-scrolling: touch;
