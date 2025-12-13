@@ -352,16 +352,16 @@ export function Hero() {
               </div>
             </TextReveal>
             
-            {/* Scroll Indicator - moderný dizajn */}
+            {/* Scroll Indicator - klasický dizajn */}
             <div
               style={{
                 position: "absolute",
                 bottom: "0",
                 left: "50%",
-                marginLeft: "-20px",
+                marginLeft: "-16px",
                 zIndex: 30,
-                width: "40px",
-                height: "60px",
+                width: "32px",
+                height: "48px",
                 pointerEvents: "none",
                 boxSizing: "border-box",
                 marginBottom: "0",
@@ -376,62 +376,78 @@ export function Hero() {
                   opacity: { duration: 0.6, delay: 1 },
                 }}
                 style={{
-                  width: "40px",
-                  height: "60px",
+                  width: "32px",
+                  height: "48px",
+                  border: "2px solid rgba(59, 130, 246, 0.4)",
+                  borderRadius: "20px",
                   display: "flex",
-                  flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center",
+                  alignItems: "flex-start",
+                  paddingTop: "10px",
                   boxSizing: "border-box",
                   position: "relative",
+                  background: "rgba(59, 130, 246, 0.05)",
                 }}
               >
-                {/* Šípka smerom dole */}
+                {/* Dvojitá šípka smerom dole */}
                 <motion.div
                   animate={{ 
-                    y: [0, 8, 0],
-                    opacity: [0.4, 1, 0.4],
+                    y: [0, 10, 0],
+                    opacity: [0.6, 1, 0.6],
                   }}
                   transition={{ 
-                    duration: 1.5, 
+                    duration: 2, 
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
                   style={{
-                    width: "24px",
-                    height: "24px",
-                    borderRight: "2px solid rgb(59, 130, 246)",
-                    borderBottom: "2px solid rgb(59, 130, 246)",
-                    transform: "rotate(45deg)",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "2px",
+                    alignItems: "center",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
-                />
-                {/* Pulzujúce body */}
-                <div style={{ display: "flex", gap: "4px", marginTop: "8px" }}>
-                  {[0, 1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ 
-                        scale: [1, 1.3, 1],
-                        opacity: [0.3, 1, 0.3],
-                      }}
-                      transition={{ 
-                        duration: 1.5, 
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeInOut",
-                      }}
-                      style={{
-                        width: "4px",
-                        height: "4px",
-                        backgroundColor: "rgb(59, 130, 246)",
-                        borderRadius: "50%",
-                        boxSizing: "border-box",
-                      }}
-                    />
-                  ))}
-                </div>
+                >
+                  <motion.div
+                    animate={{ 
+                      y: [0, 4, 0],
+                    }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0,
+                    }}
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderLeft: "4px solid transparent",
+                      borderRight: "4px solid transparent",
+                      borderTop: "6px solid rgb(59, 130, 246)",
+                      boxSizing: "border-box",
+                    }}
+                  />
+                  <motion.div
+                    animate={{ 
+                      y: [0, 4, 0],
+                    }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.15,
+                    }}
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderLeft: "4px solid transparent",
+                      borderRight: "4px solid transparent",
+                      borderTop: "6px solid rgb(59, 130, 246)",
+                      boxSizing: "border-box",
+                    }}
+                  />
+                </motion.div>
               </motion.div>
             </div>
           </div>
