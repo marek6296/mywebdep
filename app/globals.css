@@ -161,26 +161,26 @@
   .bg-gradient-animated {
     background: linear-gradient(
       -45deg,
-      oklch(0.12 0.03 250),
-      oklch(0.15 0.03 280),
-      oklch(0.12 0.03 220),
-      oklch(0.14 0.03 260),
-      oklch(0.12 0.03 250)
+      oklch(0.7 0.2 250 / 0.3),
+      oklch(0.7 0.2 280 / 0.4),
+      oklch(0.7 0.2 220 / 0.3),
+      oklch(0.7 0.2 260 / 0.35),
+      oklch(0.7 0.2 250 / 0.3)
     );
     background-size: 400% 400%;
     /* CSS animácia ako fallback */
     animation: gradient 15s ease infinite;
   }
   
-  /* Svetlý režim - tmavé farby */
+  /* Svetlý režim - primary farby */
   :root:not(.dark) .bg-gradient-animated {
     background: linear-gradient(
       -45deg,
-      #1e293b,
-      #1e40af,
-      #1e3a8a,
-      #2563eb,
-      #1e293b
+      rgba(59, 130, 246, 0.3),
+      rgba(37, 99, 235, 0.4),
+      rgba(29, 78, 216, 0.3),
+      rgba(59, 130, 246, 0.35),
+      rgba(59, 130, 246, 0.3)
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;

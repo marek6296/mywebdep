@@ -59,7 +59,6 @@ export function Hero() {
           bottom: 0,
           zIndex: 1,
           pointerEvents: "none",
-          opacity: 0.6,
         }}
         animate={{
           backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
