@@ -402,6 +402,8 @@
   
   .scroll-indicator-arrow {
     border-top-color: #000000 !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
   }
   
   /* Scroll indicator - tmavý režim */
@@ -412,6 +414,8 @@
   
   .dark .scroll-indicator-arrow {
     border-top-color: rgb(59, 130, 246) !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
   }
   
   /* Zabránenie layout shift */

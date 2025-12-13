@@ -435,7 +435,7 @@ export function Hero() {
                       height: "0",
                       borderLeft: "4px solid transparent",
                       borderRight: "4px solid transparent",
-                      borderTop: "6px solid rgb(59, 130, 246)",
+                      borderTop: "6px solid #000000",
                       boxSizing: "border-box",
                     }}
                   />
@@ -455,7 +455,7 @@ export function Hero() {
                       height: "0",
                       borderLeft: "4px solid transparent",
                       borderRight: "4px solid transparent",
-                      borderTop: "6px solid rgb(59, 130, 246)",
+                      borderTop: "6px solid #000000",
                       boxSizing: "border-box",
                     }}
                   />
