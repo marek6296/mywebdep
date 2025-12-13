@@ -58,9 +58,9 @@ export function Hero() {
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 20,
-          width: "1200px",
+          width: "100%",
           maxWidth: "1200px",
-          padding: "0 20px",
+          padding: "0 16px",
           boxSizing: "border-box",
         }}
       >
@@ -68,7 +68,7 @@ export function Hero() {
           style={{ 
             opacity,
             willChange: "opacity",
-            width: "900px",
+            width: "100%",
             maxWidth: "900px",
             margin: "0 auto",
             marginTop: "0",
@@ -79,7 +79,7 @@ export function Hero() {
           {/* Headline - fixný */}
           <div 
             style={{ 
-              width: "900px",
+              width: "100%",
               maxWidth: "900px",
               textAlign: "center",
               marginTop: "0",
@@ -94,12 +94,12 @@ export function Hero() {
             <TextReveal>
               <h1
                 style={{ 
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
                   fontWeight: "700",
                   lineHeight: "1.15",
                   letterSpacing: "-0.02em",
-                  width: "900px",
-                  maxWidth: "900px",
+                  width: "100%",
+                  maxWidth: "100%",
                   margin: "0 0 24px 0",
                   padding: 0,
                   boxSizing: "border-box",
@@ -114,8 +114,8 @@ export function Hero() {
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
-                    fontSize: "2.5rem",
-                    width: "900px",
+                    fontSize: "inherit",
+                    width: "100%",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -130,8 +130,8 @@ export function Hero() {
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
-                    fontSize: "2.5rem",
-                    width: "900px",
+                    fontSize: "inherit",
+                    width: "100%",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -147,7 +147,7 @@ export function Hero() {
           {/* Description - fixný */}
           <div 
             style={{ 
-              width: "700px",
+              width: "100%",
               maxWidth: "700px",
               textAlign: "center",
               marginTop: "0",
@@ -165,11 +165,11 @@ export function Hero() {
               <p
                 className="text-foreground/90"
                 style={{ 
-                  fontSize: "1rem",
+                  fontSize: "clamp(0.875rem, 2vw, 1rem)",
                   lineHeight: "1.6",
                   letterSpacing: "0",
-                  width: "700px",
-                  maxWidth: "700px",
+                  width: "100%",
+                  maxWidth: "100%",
                   margin: "0",
                   padding: 0,
                   boxSizing: "border-box",
@@ -184,7 +184,7 @@ export function Hero() {
           {/* Tech Stack - fixný */}
           <div 
             style={{
-              width: "600px",
+              width: "100%",
               maxWidth: "600px",
               textAlign: "center",
               marginTop: "0",
@@ -202,11 +202,11 @@ export function Hero() {
               <div 
                 className="text-foreground/90"
                 style={{ 
-                  fontSize: "0.875rem",
+                  fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
                   lineHeight: "1.5",
                   letterSpacing: "0",
-                  width: "600px",
-                  maxWidth: "600px",
+                  width: "100%",
+                  maxWidth: "100%",
                   margin: "0",
                   display: "flex",
                   flexWrap: "wrap",
@@ -240,7 +240,7 @@ export function Hero() {
           {/* CTA Buttons - fixný */}
           <div 
             style={{
-              width: "550px",
+              width: "100%",
               maxWidth: "550px",
               textAlign: "center",
               marginTop: "0",
@@ -262,8 +262,8 @@ export function Hero() {
                   gap: "16px",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "550px",
-                  maxWidth: "550px",
+                  width: "100%",
+                  maxWidth: "100%",
                   margin: "0",
                   padding: 0,
                   boxSizing: "border-box",
@@ -276,11 +276,10 @@ export function Hero() {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   style={{
                     height: "56px",
-                    width: "250px",
-                    minWidth: "250px",
+                    width: "100%",
                     maxWidth: "250px",
                     padding: "0 32px",
-                    fontSize: "1rem",
+                    fontSize: "clamp(0.875rem, 2vw, 1rem)",
                     fontWeight: "500",
                     lineHeight: "1.5",
                     boxSizing: "border-box",
@@ -316,11 +315,10 @@ export function Hero() {
                   className="border-primary/50 bg-background/50 hover:bg-background/80"
                   style={{
                     height: "56px",
-                    width: "250px",
-                    minWidth: "250px",
+                    width: "100%",
                     maxWidth: "250px",
                     padding: "0 32px",
-                    fontSize: "1rem",
+                    fontSize: "clamp(0.875rem, 2vw, 1rem)",
                     fontWeight: "500",
                     lineHeight: "1.5",
                     boxSizing: "border-box",
