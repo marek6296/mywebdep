@@ -27,12 +27,14 @@ export function Hero() {
       style={{ 
         position: "relative",
         minHeight: "100vh",
+        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         paddingTop: "64px",
         paddingBottom: "80px",
+        width: "100%",
       }}
     >
       {/* Animated Background - len dekorácia */}
@@ -51,16 +53,16 @@ export function Hero() {
       {/* Floating Elements - len dekorácia */}
       <FloatingElements />
 
-      {/* Main Content Container - úplne fixný */}
+      {/* Main Content Container - úplne fixný bez percent */}
       <div 
         style={{ 
           position: "relative",
           zIndex: 20,
-          width: "100%",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          paddingLeft: "16px",
-          paddingRight: "16px",
+          width: "900px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "0",
+          paddingRight: "0",
           boxSizing: "border-box",
         }}
       >
@@ -70,9 +72,9 @@ export function Hero() {
             willChange: "opacity",
             transform: "translate3d(0, 0, 0)",
             backfaceVisibility: "hidden",
-            width: "100%",
-            maxWidth: "900px",
-            margin: "0 auto",
+            width: "900px",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           {/* Headline - úplne fixné */}
@@ -80,10 +82,9 @@ export function Hero() {
             style={{ 
               textAlign: "center",
               marginBottom: "32px",
-              maxWidth: "900px",
+              width: "900px",
               marginLeft: "auto",
               marginRight: "auto",
-              width: "100%",
             }}
           >
             <TextReveal>
@@ -93,9 +94,8 @@ export function Hero() {
                   fontWeight: "700",
                   lineHeight: "1.15",
                   letterSpacing: "-0.02em",
-                  maxWidth: "900px",
+                  width: "900px",
                   margin: "0 auto 24px auto",
-                  width: "100%",
                   padding: 0,
                 }}
               >
@@ -108,6 +108,7 @@ export function Hero() {
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
                     fontSize: "2.5rem",
+                    width: "900px",
                   }}
                 >
                   TRANSFORMUJTE
@@ -121,6 +122,7 @@ export function Hero() {
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
                     fontSize: "2.5rem",
+                    width: "900px",
                   }}
                 >
                   podníkanie digitálnym
@@ -136,10 +138,9 @@ export function Hero() {
             style={{ 
               textAlign: "center",
               marginBottom: "24px",
-              maxWidth: "700px",
+              width: "700px",
               marginLeft: "auto",
               marginRight: "auto",
-              width: "100%",
             }}
           >
             <TextReveal delay={0.2}>
@@ -149,9 +150,8 @@ export function Hero() {
                   fontSize: "1rem",
                   lineHeight: "1.6",
                   letterSpacing: "0",
-                  maxWidth: "700px",
+                  width: "700px",
                   margin: "0 auto",
-                  width: "100%",
                   padding: 0,
                 }}
               >
@@ -165,10 +165,9 @@ export function Hero() {
             style={{
               textAlign: "center",
               marginBottom: "32px",
-              maxWidth: "600px",
+              width: "600px",
               marginLeft: "auto",
               marginRight: "auto",
-              width: "100%",
             }}
           >
             <TextReveal delay={0.3}>
@@ -178,9 +177,8 @@ export function Hero() {
                   fontSize: "0.875rem",
                   lineHeight: "1.5",
                   letterSpacing: "0",
-                  maxWidth: "600px",
+                  width: "600px",
                   margin: "0 auto",
-                  width: "100%",
                   display: "flex",
                   flexWrap: "wrap",
                   gap: "8px",
@@ -210,10 +208,9 @@ export function Hero() {
           <div 
             style={{
               textAlign: "center",
-              maxWidth: "550px",
+              width: "550px",
               marginLeft: "auto",
               marginRight: "auto",
-              width: "100%",
             }}
           >
             <TextReveal delay={0.5}>
@@ -224,9 +221,8 @@ export function Hero() {
                   gap: "16px",
                   justifyContent: "center",
                   alignItems: "center",
-                  maxWidth: "550px",
+                  width: "550px",
                   margin: "0 auto",
-                  width: "100%",
                 }}
               >
                 <Button 
@@ -235,9 +231,7 @@ export function Hero() {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   style={{
                     height: "56px",
-                    minWidth: "200px",
-                    maxWidth: "250px",
-                    width: "100%",
+                    width: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
@@ -267,9 +261,7 @@ export function Hero() {
                   className="border-primary/50 bg-background/50 hover:bg-background/80"
                   style={{
                     height: "56px",
-                    minWidth: "200px",
-                    maxWidth: "250px",
-                    width: "100%",
+                    width: "250px",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
@@ -304,7 +296,7 @@ export function Hero() {
           position: "absolute",
           bottom: "32px",
           left: "50%",
-          transform: "translateX(-50%)",
+          marginLeft: "-12px",
           zIndex: 30,
           width: "24px",
           height: "40px",
