@@ -396,7 +396,7 @@
   
   /* Scroll indicator - svetlý režim */
   .scroll-indicator-box {
-    backgroundColor: rgba(0, 0, 0, 0.05) !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
     border: 2px solid rgba(0, 0, 0, 0.4) !important;
   }
   
@@ -407,7 +407,7 @@
   
   /* Scroll indicator - tmavý režim */
   .dark .scroll-indicator-box {
-    backgroundColor: rgba(59, 130, 246, 0.05) !important;
+    background-color: rgba(59, 130, 246, 0.05) !important;
     border: 2px solid rgba(59, 130, 246, 0.4) !important;
   }
   
