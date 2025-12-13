@@ -146,6 +146,14 @@
   
   /* Hero sekcia - úplne fixné rozmery, žiadne media queries */
   /* Všetky rozmery sú nastavené priamo v komponente */
+  
+  /* Mobilná verzia hero sekcie */
+  @media (max-width: 767px) {
+    .hero-content-wrapper {
+      top: 90px !important;
+      padding: 0 12px !important;
+    }
+  }
 }
 
 /* Animated gradient background */
