@@ -140,7 +140,7 @@ export function Hero() {
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
-                    fontSize: "clamp(2rem, 8vw, 8.5rem)",
+                    fontSize: "clamp(2rem, 6vw, 6rem)",
                     width: "100%",
                     color: "#000000",
                     zIndex: 10,
