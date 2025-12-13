@@ -65,7 +65,7 @@ export function Hero() {
           backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
         }}
         transition={{
-          duration: 15,
+          duration: 10,
           repeat: Infinity,
           ease: "linear",
         }}
