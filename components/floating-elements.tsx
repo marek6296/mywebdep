@@ -14,8 +14,14 @@ export function FloatingElements() {
     <>
       {/* Floating shapes - optimalizované pre produkciu */}
       <motion.div
-        className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+        className="bg-primary/5 rounded-full blur-3xl"
         style={{ 
+          position: "fixed",
+          top: "80px",
+          left: "40px",
+          width: "288px",
+          height: "288px",
+          zIndex: 1,
           willChange: mounted ? "transform" : "auto",
           transform: "translate3d(0, 0, 0)",
           backfaceVisibility: "hidden",
@@ -32,8 +38,14 @@ export function FloatingElements() {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        className="bg-primary/10 rounded-full blur-3xl"
         style={{ 
+          position: "fixed",
+          bottom: "80px",
+          right: "40px",
+          width: "384px",
+          height: "384px",
+          zIndex: 1,
           willChange: mounted ? "transform" : "auto",
           transform: "translate3d(0, 0, 0)",
           backfaceVisibility: "hidden",
