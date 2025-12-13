@@ -52,6 +52,7 @@ export function Hero() {
 
       {/* Main Content - úplne fixný layout s fixnou pozíciou */}
       <div 
+        className="hero-content-wrapper"
         style={{ 
           position: "absolute",
           top: "120px",
