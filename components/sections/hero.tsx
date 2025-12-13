@@ -208,22 +208,38 @@ export function Hero() {
         }}
         transition={{ duration: 0.6, delay: 1 }}
         style={{
-          position: "absolute",
+          position: "fixed",
           bottom: "40px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 30,
+          width: "24px",
+          height: "40px",
         }}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center"
+          style={{
+            width: "24px",
+            height: "40px",
+            border: "2px solid rgba(59, 130, 246, 0.5)",
+            borderRadius: "9999px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            paddingTop: "8px",
+          }}
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-primary rounded-full mt-2"
+            style={{
+              width: "6px",
+              height: "6px",
+              backgroundColor: "rgb(59, 130, 246)",
+              borderRadius: "9999px",
+            }}
           />
         </motion.div>
       </motion.div>
