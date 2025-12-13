@@ -109,7 +109,7 @@ export function Hero() {
                 }}
               >
                 <span 
-                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent hero-title-main"
+                  className="hero-title-main"
                   style={{
                     display: "block",
                     backgroundSize: "200%",
@@ -118,10 +118,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
-                    backgroundImage: "linear-gradient(to right, var(--primary), var(--primary), var(--primary))",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
+                    color: "oklch(0.2 0 0)",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -129,7 +126,7 @@ export function Hero() {
                   TRANSFORMUJTE
                 </span>
                 <span 
-                  className="text-foreground dark:text-foreground hero-title-sub"
+                  className="hero-title-sub"
                   style={{
                     display: "block",
                     marginTop: "8px",
@@ -138,7 +135,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
-                    color: "var(--foreground)",
+                    color: "oklch(0.2 0 0)",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -170,7 +167,6 @@ export function Hero() {
           >
             <TextReveal delay={0.2}>
               <p
-                className="text-foreground/90"
                 style={{ 
                   fontSize: "clamp(0.875rem, 2vw, 1rem)",
                   lineHeight: "1.6",
@@ -179,8 +175,7 @@ export function Hero() {
                   maxWidth: "100%",
                   margin: "0",
                   padding: 0,
-                  color: "var(--foreground)",
-                  opacity: 0.9,
+                  color: "oklch(0.3 0 0)",
                   boxSizing: "border-box",
                   position: "relative",
                 }}
@@ -209,7 +204,7 @@ export function Hero() {
                       >
                         <TextReveal delay={0.3}>
                           <div 
-                            className="text-foreground/90 hero-tech-stack"
+                            className="hero-tech-stack"
                             style={{ 
                               fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
                               lineHeight: "1.5",
@@ -223,8 +218,7 @@ export function Hero() {
                               justifyContent: "center",
                               alignItems: "center",
                               padding: 0,
-                              color: "var(--foreground)",
-                              opacity: 0.9,
+                              color: "oklch(0.3 0 0)",
                               boxSizing: "border-box",
                               position: "relative",
                             }}
