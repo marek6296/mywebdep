@@ -249,7 +249,7 @@ export function Hero() {
               paddingTop: "0",
               paddingLeft: "0",
               paddingRight: "0",
-              paddingBottom: "80px",
+              paddingBottom: "60px",
               boxSizing: "border-box",
               position: "relative",
             }}
@@ -364,6 +364,7 @@ export function Hero() {
                 height: "40px",
                 pointerEvents: "none",
                 boxSizing: "border-box",
+                marginBottom: "0",
               }}
             >
               <motion.div
