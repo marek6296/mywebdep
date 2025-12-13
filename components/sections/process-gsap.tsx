@@ -62,9 +62,12 @@ export function ProcessGSAP() {
       }
       stepsRef.current.forEach((step, i) => {
         if (step) {
+          // Na mobile používame y (vertikálne), na desktop x (horizontálne)
+          const isMobile = window.innerWidth < 768
           gsap.set(step, { 
             opacity: 0, 
-            x: i % 2 === 0 ? -50 : 50,
+            x: isMobile ? 0 : (i % 2 === 0 ? -50 : 50),
+            y: isMobile ? 30 : 0,
             clearProps: "none"
           })
         }
@@ -106,14 +109,16 @@ export function ProcessGSAP() {
       // Animácia jednotlivých krokov - každý sa animuje keď vstúpi do viewportu
       stepsRef.current.forEach((step, i) => {
         if (step) {
+          const isMobile = window.innerWidth < 768
           gsap.to(step, {
             opacity: 1,
             x: 0,
+            y: 0,
             duration: 0.8,
             delay: i * 0.1,
             scrollTrigger: {
               trigger: step,
-              start: "top 80%", // Presnejší start - každý element sa animuje keď vstúpi do viewportu
+              start: "top 85%", // Presnejší start - každý element sa animuje keď vstúpi do viewportu
               toggleActions: "play none none none",
               once: true,
               invalidateOnRefresh: true,
@@ -161,7 +166,7 @@ export function ProcessGSAP() {
                   />
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {steps.map((step, index) => (
               <div
                 key={step.number}
@@ -171,29 +176,41 @@ export function ProcessGSAP() {
                 className={`relative flex flex-col md:flex-row items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
-                style={{ opacity: 0, transform: `translate3d(${index % 2 === 0 ? "-50px" : "50px"}, 0, 0)` }}
+                style={{ opacity: 0, transform: "translate3d(0, 30px, 0)" }}
               >
-                <div
-                  className={`md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
-                  } mb-6 md:mb-0`}
-                >
-                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-foreground break-words">{step.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground break-words">{step.description}</p>
+                {/* Mobile: Číslo hore, text dole */}
+                <div className="md:hidden w-full flex flex-col items-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-xl font-bold shadow-lg border-2 border-primary/20 mb-4">
+                    {step.number}
+                  </div>
+                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 p-4 rounded-lg shadow-lg w-full text-center">
+                    <h3 className="text-lg font-bold mb-2 text-foreground break-words">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground break-words">{step.description}</p>
                   </div>
                 </div>
 
-                        <div className="md:w-1/2 flex justify-center relative z-10">
-                          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-lg sm:text-xl font-bold shadow-lg border-2 border-primary/20">
-                            {step.number}
-                          </div>
-                        </div>
+                {/* Desktop: Pôvodné rozloženie */}
+                <div
+                  className={`hidden md:block md:w-1/2 ${
+                    index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
+                  }`}
+                >
+                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-foreground break-words">{step.title}</h3>
+                    <p className="text-base text-muted-foreground break-words">{step.description}</p>
+                  </div>
+                </div>
+
+                <div className="hidden md:flex md:w-1/2 justify-center relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary/80 rounded-full flex items-center justify-center text-primary-foreground text-xl font-bold shadow-lg border-2 border-primary/20">
+                    {step.number}
+                  </div>
+                </div>
 
                 <div
-                  className={`md:w-1/2 ${
+                  className={`hidden md:block md:w-1/2 ${
                     index % 2 === 0 ? "md:pl-8 md:text-left" : "md:pr-8 md:text-right"
-                  } hidden md:block`}
+                  }`}
                 />
               </div>
             ))}
