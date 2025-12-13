@@ -36,7 +36,7 @@ export function Hero() {
     >
       {/* Animated Background - len dekorácia */}
       <div 
-        className="absolute inset-0 bg-gradient-animated noise-overlay" 
+        className="absolute inset-0 noise-overlay" 
         style={{ 
           position: "absolute",
           top: 0,
@@ -44,6 +44,7 @@ export function Hero() {
           right: 0,
           bottom: 0,
           zIndex: 0,
+          backgroundColor: "var(--background)",
         }} 
       />
       
@@ -119,8 +120,9 @@ export function Hero() {
                     fontSize: "inherit",
                     width: "100%",
                     color: "#000000",
-                    boxSizing: "border-box",
+                    zIndex: 10,
                     position: "relative",
+                    boxSizing: "border-box",
                   }}
                 >
                   TRANSFORMUJTE
@@ -136,8 +138,9 @@ export function Hero() {
                     fontSize: "inherit",
                     width: "100%",
                     color: "#000000",
-                    boxSizing: "border-box",
+                    zIndex: 10,
                     position: "relative",
+                    boxSizing: "border-box",
                   }}
                 >
                   podníkanie digitálnym
@@ -176,8 +179,9 @@ export function Hero() {
                   margin: "0",
                   padding: 0,
                   color: "#333333",
-                  boxSizing: "border-box",
+                  zIndex: 10,
                   position: "relative",
+                  boxSizing: "border-box",
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -219,8 +223,9 @@ export function Hero() {
                               alignItems: "center",
                               padding: 0,
                               color: "#333333",
-                              boxSizing: "border-box",
+                              zIndex: 10,
                               position: "relative",
+                              boxSizing: "border-box",
                             }}
                           >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
