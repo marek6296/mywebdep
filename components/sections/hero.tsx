@@ -362,6 +362,7 @@ export function Hero() {
             
             {/* Scroll Indicator - klasický dizajn */}
             <div
+              className="scroll-indicator-wrapper"
               style={{
                 position: "absolute",
                 bottom: "0",
@@ -383,6 +384,7 @@ export function Hero() {
                 transition={{ 
                   opacity: { duration: 0.6, delay: 1 },
                 }}
+                className="scroll-indicator-box"
                 style={{
                   width: "32px",
                   height: "48px",
@@ -418,6 +420,7 @@ export function Hero() {
                   }}
                 >
                   <motion.div
+                    className="scroll-indicator-arrow"
                     animate={{ 
                       y: [0, 4, 0],
                     }}
@@ -437,6 +440,7 @@ export function Hero() {
                     }}
                   />
                   <motion.div
+                    className="scroll-indicator-arrow"
                     animate={{ 
                       y: [0, 4, 0],
                     }}
