@@ -24,74 +24,103 @@ export function Hero() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ 
-        paddingTop: "64px", // Offset pre navbar
-        paddingBottom: "80px"
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        paddingTop: "64px",
+        paddingBottom: "80px",
       }}
     >
       {/* Animated Background - len dekorácia */}
       <div 
         className="absolute inset-0 bg-gradient-animated noise-overlay" 
         style={{ 
-          zIndex: 0 
+          zIndex: 0,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
         }} 
       />
       
       {/* Floating Elements - len dekorácia */}
       <FloatingElements />
 
-      {/* Main Content Container - stabilný layout */}
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Content Container - úplne fixný */}
+      <div 
+        style={{ 
+          position: "relative",
+          zIndex: 20,
+          width: "100%",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          paddingLeft: "16px",
+          paddingRight: "16px",
+          boxSizing: "border-box",
+        }}
+      >
         <motion.div
-          className="max-w-4xl mx-auto"
           style={{ 
             opacity,
             willChange: "opacity",
             transform: "translate3d(0, 0, 0)",
             backfaceVisibility: "hidden",
+            width: "100%",
+            maxWidth: "900px",
+            margin: "0 auto",
           }}
         >
-          {/* Headline - fixné rozmery */}
+          {/* Headline - úplne fixné */}
           <div 
-            className="text-center mb-8" 
             style={{ 
-              maxWidth: "900px", 
-              margin: "0 auto",
+              textAlign: "center",
+              marginBottom: "32px",
+              maxWidth: "900px",
+              marginLeft: "auto",
+              marginRight: "auto",
               width: "100%",
             }}
           >
             <TextReveal>
               <h1
-                className="font-bold mb-6"
                 style={{ 
-                  fontSize: "2.5rem", // Mobile - fixné
+                  fontSize: "2.5rem",
+                  fontWeight: "700",
                   lineHeight: "1.15",
                   letterSpacing: "-0.02em",
                   maxWidth: "900px",
-                  margin: "0 auto",
+                  margin: "0 auto 24px auto",
                   width: "100%",
+                  padding: 0,
                 }}
               >
                 <span 
-                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block"
+                  className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"
                   style={{
+                    display: "block",
                     backgroundSize: "200%",
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
-                    fontSize: "inherit",
+                    fontSize: "2.5rem",
                   }}
                 >
                   TRANSFORMUJTE
                 </span>
                 <span 
-                  className="text-foreground block mt-2"
+                  className="text-foreground"
                   style={{
+                    display: "block",
+                    marginTop: "8px",
                     fontWeight: "700",
                     lineHeight: "1.15",
                     letterSpacing: "-0.02em",
-                    fontSize: "inherit",
+                    fontSize: "2.5rem",
                   }}
                 >
                   podníkanie digitálnym
@@ -102,12 +131,14 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Description - fixné rozmery */}
+          {/* Description - úplne fixné */}
           <div 
-            className="text-center mb-6" 
             style={{ 
-              maxWidth: "700px", 
-              margin: "0 auto",
+              textAlign: "center",
+              marginBottom: "24px",
+              maxWidth: "700px",
+              marginLeft: "auto",
+              marginRight: "auto",
               width: "100%",
             }}
           >
@@ -115,12 +146,13 @@ export function Hero() {
               <p
                 className="text-foreground/90"
                 style={{ 
-                  fontSize: "1rem", // Fixné
+                  fontSize: "1rem",
                   lineHeight: "1.6",
                   letterSpacing: "0",
                   maxWidth: "700px",
                   margin: "0 auto",
                   width: "100%",
+                  padding: 0,
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -128,58 +160,70 @@ export function Hero() {
             </TextReveal>
           </div>
 
-          {/* Tech Stack - fixné rozmery */}
+          {/* Tech Stack - úplne fixné */}
           <div 
-            className="text-center mb-8"
             style={{
+              textAlign: "center",
+              marginBottom: "32px",
               maxWidth: "600px",
-              margin: "0 auto",
+              marginLeft: "auto",
+              marginRight: "auto",
               width: "100%",
             }}
           >
             <TextReveal delay={0.3}>
               <div 
-                className="text-foreground/90 flex flex-wrap gap-2 justify-center items-center"
+                className="text-foreground/90"
                 style={{ 
-                  fontSize: "0.875rem", // Fixné
+                  fontSize: "0.875rem",
                   lineHeight: "1.5",
                   letterSpacing: "0",
                   maxWidth: "600px",
                   margin: "0 auto",
                   width: "100%",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: 0,
                 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
                   <span
                     key={tech}
-                    className="font-medium"
                     style={{
                       fontWeight: "500",
                       lineHeight: "1.5",
-                      fontSize: "inherit",
+                      fontSize: "0.875rem",
                     }}
                   >
                     {tech}
-                    {i < 2 && <span className="mx-1.5">•</span>}
+                    {i < 2 && <span style={{ marginLeft: "6px", marginRight: "6px" }}>•</span>}
                   </span>
                 ))}
               </div>
             </TextReveal>
           </div>
 
-          {/* CTA Buttons - fixné rozmery */}
+          {/* CTA Buttons - úplne fixné */}
           <div 
-            className="text-center"
             style={{
+              textAlign: "center",
               maxWidth: "550px",
-              margin: "0 auto",
+              marginLeft: "auto",
+              marginRight: "auto",
               width: "100%",
             }}
           >
             <TextReveal delay={0.5}>
               <div
-                className="flex flex-col md:flex-row gap-4 justify-center items-center"
                 style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px",
+                  justifyContent: "center",
+                  alignItems: "center",
                   maxWidth: "550px",
                   margin: "0 auto",
                   width: "100%",
@@ -188,24 +232,25 @@ export function Hero() {
                 <Button 
                   asChild 
                   size="lg" 
-                  className="w-full md:w-auto group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   style={{
                     height: "56px",
                     minWidth: "200px",
                     maxWidth: "250px",
+                    width: "100%",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
                     lineHeight: "1.5",
-                    width: "100%",
+                    boxSizing: "border-box",
                   }}
                 >
                   <Link href="/obchod">
-                    <span className="relative z-10 flex items-center justify-center">
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                       Prehľadať obchod
                       <ArrowRight 
-                        className="ml-2" 
                         style={{ 
+                          marginLeft: "8px",
                           width: "16px", 
                           height: "16px",
                           minWidth: "16px",
@@ -219,24 +264,25 @@ export function Hero() {
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="w-full md:w-auto group border-primary/50 bg-background/50 hover:bg-background/80"
+                  className="border-primary/50 bg-background/50 hover:bg-background/80"
                   style={{
                     height: "56px",
                     minWidth: "200px",
                     maxWidth: "250px",
+                    width: "100%",
                     padding: "0 32px",
                     fontSize: "1rem",
                     fontWeight: "500",
                     lineHeight: "1.5",
-                    width: "100%",
+                    boxSizing: "border-box",
                   }}
                 >
                   <Link href="/contact">
-                    <span className="relative z-10 flex items-center justify-center">
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                       Kontakt
                       <ArrowRight 
-                        className="ml-2" 
                         style={{ 
+                          marginLeft: "8px",
                           width: "16px", 
                           height: "16px",
                           minWidth: "16px",
@@ -254,11 +300,15 @@ export function Hero() {
 
       {/* Scroll Indicator - fixný na spodku */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
         style={{
-          pointerEvents: "none",
+          position: "absolute",
+          bottom: "32px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 30,
           width: "24px",
           height: "40px",
+          pointerEvents: "none",
         }}
       >
         <motion.div
@@ -269,19 +319,25 @@ export function Hero() {
           transition={{ 
             opacity: { duration: 0.6, delay: 1 },
           }}
-          className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center items-start pt-2"
           style={{
             width: "24px",
             height: "40px",
+            border: "2px solid rgba(59, 130, 246, 0.5)",
+            borderRadius: "9999px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            paddingTop: "8px",
           }}
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-primary rounded-full"
             style={{
               width: "6px",
               height: "6px",
+              backgroundColor: "rgb(59, 130, 246)",
+              borderRadius: "9999px",
             }}
           />
         </motion.div>
