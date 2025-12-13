@@ -452,8 +452,8 @@
   
   .dark .cta-banner-box {
     background-color: transparent !important;
-    background-image: linear-gradient(to right, oklch(from var(--primary) l c h / 0.2), oklch(from var(--primary) l c h / 0.1), oklch(from var(--primary) l c h / 0.05)) !important;
-    border-color: oklch(from var(--primary) l c h / 0.2) !important;
+    background-image: linear-gradient(to right, oklch(0.7 0.2 250 / 0.2), oklch(0.7 0.2 250 / 0.1), oklch(0.7 0.2 250 / 0.05)) !important;
+    border-color: oklch(0.7 0.2 250 / 0.2) !important;
   }
   
   .cta-gradient-overlay {
