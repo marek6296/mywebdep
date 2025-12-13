@@ -176,6 +176,7 @@ export function Hero() {
 
           {/* Description - fixný */}
           <div 
+            className="hero-description-wrapper"
             style={{ 
               width: "100%",
               maxWidth: "700px",
@@ -272,6 +273,7 @@ export function Hero() {
 
           {/* CTA Buttons - fixný */}
           <div 
+            className="hero-cta-wrapper"
             style={{
               width: "100%",
               maxWidth: "550px",
