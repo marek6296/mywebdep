@@ -125,7 +125,7 @@ export function Hero() {
                   TRANSFORMUJTE
                 </span>
                 <span 
-                  className="text-foreground hero-title-sub"
+                  className="text-foreground dark:text-foreground hero-title-sub"
                   style={{
                     display: "block",
                     marginTop: "8px",
@@ -134,6 +134,7 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     fontSize: "inherit",
                     width: "100%",
+                    color: "var(--foreground)",
                     boxSizing: "border-box",
                     position: "relative",
                   }}
@@ -174,6 +175,8 @@ export function Hero() {
                   maxWidth: "100%",
                   margin: "0",
                   padding: 0,
+                  color: "var(--foreground)",
+                  opacity: 0.9,
                   boxSizing: "border-box",
                   position: "relative",
                 }}
@@ -216,6 +219,8 @@ export function Hero() {
                               justifyContent: "center",
                               alignItems: "center",
                               padding: 0,
+                              color: "var(--foreground)",
+                              opacity: 0.9,
                               boxSizing: "border-box",
                               position: "relative",
                             }}
