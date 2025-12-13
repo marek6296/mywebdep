@@ -62,8 +62,14 @@ export function FloatingElements() {
         }}
       />
       <motion.div
-        className="absolute top-1/2 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+        className="bg-primary/5 rounded-full blur-3xl"
         style={{ 
+          position: "fixed",
+          top: "50%",
+          right: "25%",
+          width: "256px",
+          height: "256px",
+          zIndex: 1,
           willChange: mounted ? "transform" : "auto",
           transform: "translate3d(0, 0, 0)",
           backfaceVisibility: "hidden",
