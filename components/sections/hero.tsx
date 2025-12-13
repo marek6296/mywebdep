@@ -36,7 +36,7 @@ export function Hero() {
     >
       {/* Animated Background - len dekorácia */}
       <div 
-        className="absolute inset-0 noise-overlay" 
+        className="absolute inset-0" 
         style={{ 
           position: "absolute",
           top: 0,
@@ -46,6 +46,28 @@ export function Hero() {
           zIndex: 0,
           backgroundColor: "var(--background)",
         }} 
+      />
+      
+      {/* Animated gradient overlay - presne ako v CTA banneri */}
+      <motion.div
+        className="absolute inset-0 hero-gradient-animated"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear",
+        }}
       />
       
       {/* Floating Elements - len dekorácia */}

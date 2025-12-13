@@ -181,6 +181,32 @@
       background-position: 0% 50%;
     }
   }
+  
+  /* Hero gradient animated - tmavé farby webu */
+  .hero-gradient-animated {
+    opacity: 0.3 !important;
+    background: linear-gradient(
+      -45deg,
+      oklch(0.08 0.02 250),
+      oklch(0.1 0.02 280),
+      oklch(0.08 0.02 220),
+      oklch(0.09 0.02 260)
+    ) !important;
+    background-size: 400% 400% !important;
+  }
+  
+  /* Svetlý režim - tmavé farby */
+  :root:not(.dark) .hero-gradient-animated {
+    opacity: 0.25 !important;
+    background: linear-gradient(
+      -45deg,
+      #0f172a,
+      #1e3a8a,
+      #1e293b,
+      #1e40af
+    ) !important;
+    background-size: 400% 400% !important;
+  }
 
   .noise-overlay {
     position: relative;
