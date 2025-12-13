@@ -62,25 +62,18 @@ export function Hero() {
           maxWidth: "1200px",
           padding: "0 20px",
           boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
         }}
       >
         <motion.div
           style={{ 
             opacity,
             willChange: "opacity",
-            width: "100%",
+            width: "900px",
             maxWidth: "900px",
             margin: "0 auto",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "flex-start",
             marginTop: "0",
             paddingTop: "0",
+            boxSizing: "border-box",
           }}
         >
           {/* Headline - fixný */}
@@ -92,7 +85,10 @@ export function Hero() {
               marginTop: "0",
               marginBottom: "32px",
               paddingTop: "0",
+              paddingLeft: "0",
+              paddingRight: "0",
               boxSizing: "border-box",
+              position: "relative",
             }}
           >
             <TextReveal>
@@ -107,6 +103,7 @@ export function Hero() {
                   margin: "0 0 24px 0",
                   padding: 0,
                   boxSizing: "border-box",
+                  position: "relative",
                 }}
               >
                 <span 
@@ -120,6 +117,7 @@ export function Hero() {
                     fontSize: "2.5rem",
                     width: "900px",
                     boxSizing: "border-box",
+                    position: "relative",
                   }}
                 >
                   TRANSFORMUJTE
@@ -135,6 +133,7 @@ export function Hero() {
                     fontSize: "2.5rem",
                     width: "900px",
                     boxSizing: "border-box",
+                    position: "relative",
                   }}
                 >
                   podníkanie digitálnym
@@ -151,8 +150,15 @@ export function Hero() {
               width: "700px",
               maxWidth: "700px",
               textAlign: "center",
+              marginTop: "0",
               marginBottom: "24px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingTop: "0",
+              paddingLeft: "0",
+              paddingRight: "0",
               boxSizing: "border-box",
+              position: "relative",
             }}
           >
             <TextReveal delay={0.2}>
@@ -167,6 +173,7 @@ export function Hero() {
                   margin: "0",
                   padding: 0,
                   boxSizing: "border-box",
+                  position: "relative",
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
@@ -180,8 +187,15 @@ export function Hero() {
               width: "600px",
               maxWidth: "600px",
               textAlign: "center",
+              marginTop: "0",
               marginBottom: "32px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingTop: "0",
+              paddingLeft: "0",
+              paddingRight: "0",
               boxSizing: "border-box",
+              position: "relative",
             }}
           >
             <TextReveal delay={0.3}>
@@ -201,6 +215,7 @@ export function Hero() {
                   alignItems: "center",
                   padding: 0,
                   boxSizing: "border-box",
+                  position: "relative",
                 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
@@ -211,6 +226,7 @@ export function Hero() {
                       lineHeight: "1.5",
                       fontSize: "0.875rem",
                       boxSizing: "border-box",
+                      position: "relative",
                     }}
                   >
                     {tech}
@@ -227,7 +243,14 @@ export function Hero() {
               width: "550px",
               maxWidth: "550px",
               textAlign: "center",
+              marginTop: "0",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingTop: "0",
+              paddingLeft: "0",
+              paddingRight: "0",
               boxSizing: "border-box",
+              position: "relative",
             }}
           >
             <TextReveal delay={0.5}>
@@ -241,7 +264,9 @@ export function Hero() {
                   width: "550px",
                   maxWidth: "550px",
                   margin: "0",
+                  padding: 0,
                   boxSizing: "border-box",
+                  position: "relative",
                 }}
               >
                 <Button 
@@ -258,10 +283,17 @@ export function Hero() {
                     fontWeight: "500",
                     lineHeight: "1.5",
                     boxSizing: "border-box",
+                    position: "relative",
                   }}
                 >
                   <Link href="/obchod">
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                    <span style={{ 
+                      display: "flex", 
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      width: "100%",
+                      position: "relative",
+                    }}>
                       Prehľadať obchod
                       <ArrowRight 
                         style={{ 
@@ -270,6 +302,7 @@ export function Hero() {
                           height: "16px",
                           minWidth: "16px",
                           minHeight: "16px",
+                          position: "relative",
                         }} 
                       />
                     </span>
@@ -290,10 +323,17 @@ export function Hero() {
                     fontWeight: "500",
                     lineHeight: "1.5",
                     boxSizing: "border-box",
+                    position: "relative",
                   }}
                 >
                   <Link href="/contact">
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                    <span style={{ 
+                      display: "flex", 
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      width: "100%",
+                      position: "relative",
+                    }}>
                       Kontakt
                       <ArrowRight 
                         style={{ 
@@ -302,6 +342,7 @@ export function Hero() {
                           height: "16px",
                           minWidth: "16px",
                           minHeight: "16px",
+                          position: "relative",
                         }} 
                       />
                     </span>
