@@ -10,7 +10,9 @@ import { LoadingScreen } from "@/components/loading-screen";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
+  display: "optional", // Prevencia layout shiftu
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

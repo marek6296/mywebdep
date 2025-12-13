@@ -118,6 +118,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-display: optional;
   }
   
   /* Performance optimizations */
@@ -127,6 +129,19 @@
   
   [data-animate] {
     will-change: transform, opacity;
+  }
+  
+  /* Prevencia layout shiftu - fixné font metriká */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Navbar fixné rozmery */
+  nav a {
+    font-weight: 500;
+    line-height: 1.5;
   }
 }
 

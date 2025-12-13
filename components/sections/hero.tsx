@@ -17,9 +17,6 @@ export function Hero() {
   })
 
   // Optimized transforms with clamping for production
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150], {
-    clamp: true,
-  })
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], {
     clamp: true,
   })
@@ -50,158 +47,161 @@ export function Hero() {
           className="max-w-4xl mx-auto"
           style={{ 
             opacity,
-            willChange: "opacity, transform",
+            willChange: "opacity",
             transform: "translate3d(0, 0, 0)",
             backfaceVisibility: "hidden",
           }}
         >
-          {/* Headline */}
-          <div className="text-center mb-8">
+          {/* Headline - stabilný max-width, fixné line-height */}
+          <div className="text-center mb-8" style={{ maxWidth: "900px", margin: "0 auto" }}>
             <TextReveal>
-              <motion.h1
-                className="font-bold leading-tight mb-6"
+              <h1
+                className="font-bold mb-6"
                 style={{ 
-                  fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                  lineHeight: "1.1",
+                  fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
+                  lineHeight: "1.15",
+                  letterSpacing: "-0.02em",
+                  maxWidth: "100%",
+                  margin: "0 auto",
                 }}
               >
-                <motion.span 
+                <span 
                   className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block"
-                  animate={{
-                    backgroundPosition: ["0%", "100%", "0%"],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
                   style={{
                     backgroundSize: "200%",
+                    fontWeight: "700",
+                    lineHeight: "1.15",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   TRANSFORMUJTE
-                </motion.span>
-                <span className="text-foreground block mt-2">
+                </span>
+                <span 
+                  className="text-foreground block mt-2"
+                  style={{
+                    fontWeight: "700",
+                    lineHeight: "1.15",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
                   podníkanie digitálnym
                   <br />
                   riešením
                 </span>
-              </motion.h1>
+              </h1>
             </TextReveal>
           </div>
 
-          {/* Description */}
-          <div className="text-center mb-6">
+          {/* Description - stabilný max-width, fixné line-height */}
+          <div className="text-center mb-6" style={{ maxWidth: "700px", margin: "0 auto" }}>
             <TextReveal delay={0.2}>
-              <motion.p
-                className="text-foreground/90 leading-relaxed max-w-2xl mx-auto"
+              <p
+                className="text-foreground/90"
                 style={{ 
-                  fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
+                  fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
                   lineHeight: "1.6",
+                  letterSpacing: "0",
+                  maxWidth: "100%",
+                  margin: "0 auto",
                 }}
               >
                 Vytvárame špičkové webové riešenia, ktoré zvyšujú vašu konkurenčnú výhodu a rast tržieb.
-              </motion.p>
+              </p>
             </TextReveal>
           </div>
 
           {/* Tech Stack */}
           <div className="text-center mb-8">
             <TextReveal delay={0.3}>
-              <motion.div 
+              <div 
                 className="text-foreground/90 flex flex-wrap gap-2 justify-center items-center"
                 style={{ 
-                  fontSize: "clamp(0.75rem, 1.5vw, 0.95rem)",
+                  fontSize: "clamp(0.875rem, 1.2vw, 0.95rem)",
+                  lineHeight: "1.5",
+                  letterSpacing: "0",
                 }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "0px", amount: 0.25 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                transition={{ duration: 0.6, delay: 0.6 }}
               >
                 {["Next.js", "TypeScript", "Premium Design"].map((tech, i) => (
-                  <motion.span
+                  <span
                     key={tech}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "0px", amount: 0.25 }}
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
                     className="font-medium"
+                    style={{
+                      fontWeight: "500",
+                      lineHeight: "1.5",
+                    }}
                   >
                     {tech}
                     {i < 2 && <span className="mx-1.5">•</span>}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
+              </div>
             </TextReveal>
           </div>
 
-          {/* CTA Buttons - stabilné pozície */}
+          {/* CTA Buttons - fixné rozmery */}
           <div className="text-center">
             <TextReveal delay={0.5}>
-              <motion.div
+              <div
                 className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-lg mx-auto"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "0px", amount: 0.25 }}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full md:w-auto"
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="w-full md:w-auto group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground"
+                  style={{
+                    height: "56px",
+                    minWidth: "200px",
+                    padding: "0 32px",
+                    fontSize: "1rem",
+                    fontWeight: "500",
+                    lineHeight: "1.5",
+                  }}
                 >
-                  <Button 
-                    asChild 
-                    size="lg" 
-                    className="w-full md:w-auto px-8 py-6 text-base group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    <Link href="/obchod">
-                      <motion.span
-                        className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                        animate={{
-                          x: ["-100%", "100%"],
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          repeatDelay: 2,
-                        }}
-                      />
+                  <Link href="/obchod">
+                    <span className="relative z-10 flex items-center justify-center">
                       Prehľadať obchod
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full md:w-auto"
+                      <ArrowRight 
+                        className="ml-2" 
+                        style={{ 
+                          width: "16px", 
+                          height: "16px",
+                          minWidth: "16px",
+                          minHeight: "16px",
+                        }} 
+                      />
+                    </span>
+                  </Link>
+                </Button>
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full md:w-auto group border-primary/50 bg-background/50 hover:bg-background/80"
+                  style={{
+                    height: "56px",
+                    minWidth: "200px",
+                    padding: "0 32px",
+                    fontSize: "1rem",
+                    fontWeight: "500",
+                    lineHeight: "1.5",
+                  }}
                 >
-                  <Button 
-                    asChild 
-                    variant="outline" 
-                    size="lg" 
-                    className="w-full md:w-auto px-8 py-6 text-base group border-primary/50 bg-background/50 hover:bg-background/80"
-                  >
-                    <Link href="/contact">
+                  <Link href="/contact">
+                    <span className="relative z-10 flex items-center justify-center">
                       Kontakt
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </motion.div>
-              </motion.div>
+                      <ArrowRight 
+                        className="ml-2" 
+                        style={{ 
+                          width: "16px", 
+                          height: "16px",
+                          minWidth: "16px",
+                          minHeight: "16px",
+                        }} 
+                      />
+                    </span>
+                  </Link>
+                </Button>
+              </div>
             </TextReveal>
           </div>
         </motion.div>
@@ -212,24 +212,32 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
         style={{
           pointerEvents: "none",
+          width: "24px",
+          height: "40px",
         }}
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ 
             opacity: 1,
-            y: [0, 10, 0] 
           }}
           transition={{ 
             opacity: { duration: 0.6, delay: 1 },
-            y: { duration: 2, repeat: Infinity }
           }}
           className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center items-start pt-2"
+          style={{
+            width: "24px",
+            height: "40px",
+          }}
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="w-1.5 h-1.5 bg-primary rounded-full"
+            style={{
+              width: "6px",
+              height: "6px",
+            }}
           />
         </motion.div>
       </div>
