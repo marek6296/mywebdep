@@ -87,6 +87,10 @@ export function Hero() {
           maxWidth: "1200px",
           padding: "0 16px",
           boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <motion.div

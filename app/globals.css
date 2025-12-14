@@ -363,47 +363,72 @@
   /* Mobilná verzia hero sekcie */
   @media (max-width: 767px) {
     .hero-content-wrapper {
-      top: 70px !important;
-      padding: 20px 16px !important;
+      top: 64px !important;
+      padding: 40px 20px 20px 20px !important;
       display: flex !important;
       flex-direction: column !important;
-      justify-content: flex-start !important;
+      justify-content: center !important;
       align-items: center !important;
-      min-height: calc(100vh - 70px) !important;
+      min-height: calc(100vh - 64px) !important;
+    }
+    
+    .hero-content-wrapper > div {
+      width: 100% !important;
+      max-width: 100% !important;
     }
     
     .hero-content-wrapper h1 {
-      font-size: clamp(2rem, 7vw, 2.5rem) !important;
-      margin-bottom: 20px !important;
-      padding: 0 8px !important;
+      font-size: clamp(2.25rem, 8vw, 3rem) !important;
+      margin-bottom: 24px !important;
+      padding: 0 !important;
+      line-height: 1.1 !important;
+    }
+    
+    .hero-title-main {
+      font-size: clamp(2.25rem, 8vw, 3rem) !important;
+      display: block !important;
+      margin-bottom: 8px !important;
+    }
+    
+    .hero-title-sub {
+      font-size: clamp(1.5rem, 5vw, 2rem) !important;
+      display: block !important;
     }
     
     .hero-description-wrapper {
       margin-bottom: 20px !important;
-      padding: 0 8px !important;
+      padding: 0 !important;
+      width: 100% !important;
     }
     
     .hero-content-wrapper p {
-      font-size: clamp(0.95rem, 3.5vw, 1.1rem) !important;
+      font-size: clamp(1rem, 4vw, 1.15rem) !important;
       margin-bottom: 0 !important;
       line-height: 1.6 !important;
       padding: 0 !important;
     }
     
     .hero-tech-stack {
-      font-size: clamp(0.85rem, 3vw, 0.95rem) !important;
+      font-size: clamp(0.9rem, 3.5vw, 1rem) !important;
       margin-bottom: 32px !important;
-      padding: 0 8px !important;
+      padding: 0 !important;
     }
     
     .hero-cta-wrapper {
-      padding-bottom: 80px !important;
-      padding: 0 8px 80px 8px !important;
+      padding-bottom: 60px !important;
+      padding: 0 !important;
+      width: 100% !important;
+    }
+    
+    .hero-cta-wrapper > div {
+      width: 100% !important;
+      max-width: 100% !important;
     }
     
     .hero-cta-wrapper button {
       width: 100% !important;
-      max-width: 280px !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
     }
   }
   
