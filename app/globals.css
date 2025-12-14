@@ -415,13 +415,14 @@
     }
     
     .hero-cta-wrapper {
-      padding-bottom: 120px !important;
+      padding-bottom: 80px !important;
       padding: 0 !important;
       width: 100% !important;
     }
     
     .scroll-indicator-wrapper {
-      bottom: 20px !important;
+      bottom: 10px !important;
+      position: fixed !important;
     }
     
     .hero-cta-wrapper > div {
