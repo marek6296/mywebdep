@@ -385,7 +385,7 @@
     }
     
     .hero-title-main {
-      font-size: clamp(2.25rem, 8vw, 3rem) !important;
+      font-size: clamp(2.5rem, 9vw, 3.5rem) !important;
       display: block !important;
       margin-bottom: 8px !important;
     }
@@ -415,9 +415,13 @@
     }
     
     .hero-cta-wrapper {
-      padding-bottom: 60px !important;
+      padding-bottom: 120px !important;
       padding: 0 !important;
       width: 100% !important;
+    }
+    
+    .scroll-indicator-wrapper {
+      bottom: 20px !important;
     }
     
     .hero-cta-wrapper > div {
