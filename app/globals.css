@@ -421,7 +421,7 @@
     }
     
     .scroll-indicator-wrapper {
-      bottom: 10px !important;
+      bottom: 30px !important;
       position: fixed !important;
     }
     
